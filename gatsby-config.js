@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Starter Blog',
-    author: 'Kyle Mathews',
+    title: 'Anson Lichtfuss',
+    author: 'Anson Lichtfuss',
     description: 'A starter blog demonstrating what Gatsby can do.',
     siteUrl: 'https://gatsby-starter-blog-demo.netlify.com/',
     social: {
@@ -9,6 +9,7 @@ module.exports = {
     },
   },
   plugins: [
+    'gatsby-plugin-styled-jsx',
     'gatsby-plugin-theme-ui',
     {
       resolve: 'gatsby-source-filesystem',

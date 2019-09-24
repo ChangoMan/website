@@ -1,6 +1,5 @@
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import React from 'react';
-import Bio from '../components/bio';
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
 
@@ -11,11 +10,8 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
-      <Bio />
-      <Link to="/blog">
-        Go read the blog ->
-      </Link>
+      <SEO title="Homepage" />
+      mkay so this is the homepage
     </Layout>
   );
 };

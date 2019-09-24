@@ -1,15 +1,15 @@
 import Typography from 'typography';
-import Wordpress2016 from 'typography-theme-wordpress-2016';
+import GithubTheme from 'typography-theme-github';
 
-Wordpress2016.overrideThemeStyles = () => ({
-  'a.gatsby-resp-image-link': {
-    boxShadow: 'none',
+delete GithubTheme.googleFonts;
+
+GithubTheme.overrideThemeStyles = ({ rhythm }, options) => ({
+  'h1,h2': {
+    borderBottom: 'none',
   },
 });
 
-delete Wordpress2016.googleFonts;
-
-const typography = new Typography(Wordpress2016);
+const typography = new Typography(GithubTheme);
 
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== 'production') {
