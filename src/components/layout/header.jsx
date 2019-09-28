@@ -13,7 +13,7 @@ const Header = ({ title, isRootPage }) => (
       fontFamily: 'Work Sans',
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'space-between'
+      justifyContent: 'space-between',
     }}
     sx={{
     }}
@@ -23,60 +23,41 @@ const Header = ({ title, isRootPage }) => (
       <Logo style={{ width: '65px', height: '65px' }} strokeWidth={5} />
       <Link
         to="/"
-        style={{ fontWeight: '300', textDecoration: 'none', color: 'black', textTransform: 'uppercase', letterSpacing: '2px', marginLeft: '1rem' }}
+        style={{
+          fontWeight: '300', textDecoration: 'none', color: 'black', textTransform: 'uppercase', letterSpacing: '2px', marginLeft: '1rem',
+        }}
       >
         {/* {title} */}
-        <strong style={{ fontWeight: '600' }}>Anson</strong> Lichtfuss
-    </Link>
+        <strong style={{ fontWeight: '600' }}>Anson</strong>
+        {' '}
+        Lichtfuss
+      </Link>
     </div>
-    <div className="hamburger-menu-button">
-      <div className="button-bars"></div>
+    <div className="navigation-links">
+      <Link
+        to="/blog"
+        style={{
+          fontWeight: '300', textDecoration: 'none', color: 'black', textTransform: 'uppercase', letterSpacing: '2px',
+        }}
+      >
+        Blog
+      </Link>
+      <Link
+        to="/about"
+        style={{
+          fontWeight: '300', textDecoration: 'none', color: 'black', textTransform: 'uppercase', letterSpacing: '2px', marginLeft: '2rem',
+        }}
+      >
+        About
+      </Link>
     </div>
-    <style jsx>{`
-      .hamburger-menu-button {
-        display: block;
-        width: 28px;
-        height: 13px;
-        padding-top: 11px;
-        cursor: pointer;
-        box-sizing: content-box;
-      }
-      .button-bars {
-        display: block;
-        width: 28px;
-        height: 3px;
-        background: black;
-        border-radius: 3px;
-        position: relative;
-        transition: all 0.4s ease-in-out;
-      }
-      .button-bars:before,
-      .button-bars:after {
-        content: '';
-        position: absolute;
-        right: 0;
-        width: 28px;
-        height: 3px;
-        background: black;
-        border-radius: 3px;
-        transition: all 0.4s ease-in-out;
-      }
-      .button-bars:before {
-        top: -10px;
-        width: 26px;
-      }
-      .button-bars:after {
-        top: 10px;
-        width: 22px;
-      }
-      .hamburger-menu-button:hover .button-bars {
-      }
-      .hamburger-menu-button:hover .button-bars:before,
-      .hamburger-menu-button:hover .button-bars:after {
-        width: 28px;
-      }
+    <style jsx>
+      {`
 
-    `}</style>
+
+    `}
+
+    </style>
   </h1>
 );
 
