@@ -3,23 +3,31 @@ import { Link } from 'gatsby';
 import { jsx } from 'theme-ui';
 import { rhythm, scale } from '../../utils/typography';
 import Logo from '../logo';
+import Navigation from './navigation';
 
 const Header = ({ title, isRootPage }) => (
-  <h1
-    style={{
-      ...scale(0.25),
-      marginBottom: rhythm(1.5),
-      marginTop: 0,
-      fontFamily: 'Work Sans',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-    }}
-    sx={{
-    }}
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: rhythm(1.5),
+  }}
   >
-    <div style={{ display: 'flex', alignItems: 'center' }}>
 
+    <h1
+      style={{
+        ...scale(0.25),
+        marginTop: 0,
+        marginBottom: 0,
+        paddingBottom: 0,
+        fontFamily: 'Work Sans',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+      }}
+      sx={{
+      }}
+    >
       <Logo style={{ width: '65px', height: '65px' }} strokeWidth={5} />
       <Link
         to="/"
@@ -32,33 +40,9 @@ const Header = ({ title, isRootPage }) => (
         {' '}
         Lichtfuss
       </Link>
-    </div>
-    <div className="navigation-links">
-      <Link
-        to="/blog"
-        style={{
-          fontWeight: '300', textDecoration: 'none', color: 'black', textTransform: 'uppercase', letterSpacing: '2px',
-        }}
-      >
-        Blog
-      </Link>
-      <Link
-        to="/about"
-        style={{
-          fontWeight: '300', textDecoration: 'none', color: 'black', textTransform: 'uppercase', letterSpacing: '2px', marginLeft: '2rem',
-        }}
-      >
-        About
-      </Link>
-    </div>
-    <style jsx>
-      {`
-
-
-    `}
-
-    </style>
-  </h1>
+    </h1>
+    <Navigation />
+  </div>
 );
 
 export default Header;
