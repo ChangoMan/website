@@ -36,6 +36,7 @@ const item = {
 
 const Navigation = ({ title, isRootPage }) => {
   const [navOpen, setNavOpen] = useState(false);
+  console.log('⛱ navOpen:', navOpen);
   return (
     <div className="nav-container">
       <AnimatePresence>
@@ -76,19 +77,20 @@ const Navigation = ({ title, isRootPage }) => {
         <motion.div
           className="button-bars-before w-6 bg-black rounded mb-2"
           animate={{
-            background: navOpen ? ['#000', '#fff', '#fff', '#fff', '#fff'] : ['#fff', '#000', '#000', '#000', '#000'],
-            y: navOpen ? [0, 10, 10, 10] : [10, 10, 10, 0],
-            rotate: navOpen ? [0, 0, 0, 0, '45deg'] : ['45deg', 0, 0, 0, 0],
+            background: navOpen ? '#fff' : '#000',
+            y: navOpen ? 10 : 0,
+            rotate: navOpen ? '45deg' : 0,
           }}
           transition={{ ease: 'linear', duration: 0.3 }}
         />
         <motion.div className="button-bars block w-6 relative bg-black rounded" animate={{ opacity: navOpen ? 0 : 1 }} />
         <motion.div
           className="button-bars-after w-6 bg-black rounded mt-2"
+          initial={{ y: 0 }}
           animate={{
-            background: navOpen ? ['#000', '#fff', '#fff', '#fff', '#fff'] : ['#fff', '#000', '#000', '#000', '#000'],
-            y: navOpen ? [0, -10, -10, -10] : [-10, -10, -10, 0],
-            rotate: navOpen ? [0, 0, 0, 0, '-45deg'] : ['45deg', 0, 0, 0, 0],
+            background: navOpen ? '#fff' : '#000',
+            y: navOpen ? -10 : 0,
+            rotate: navOpen ? '-45deg' : 0,
           }}
           transition={{ ease: 'linear', duration: 0.3 }}
         />
@@ -97,12 +99,10 @@ const Navigation = ({ title, isRootPage }) => {
         {`
       .hamburger-menu :global(.button-bars) {
         height: 2px;
-        transition: all 0.1s ease-in-out;
       }
       .hamburger-menu :global(.button-bars-before),
       .hamburger-menu :global(.button-bars-after) {
         height: 2px;
-        transition: all 0.1s ease-in-out;
       }
       .hamburger-menu:hover :global(.button-bars-before),
       .hamburger-menu:hover :global(.button-bars-after) {

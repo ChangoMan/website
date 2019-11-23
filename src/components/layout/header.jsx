@@ -1,6 +1,6 @@
 import { Link } from 'gatsby';
 import React from 'react';
-import Logo from '../logo';
+import Logo from '../assets/logo';
 import Navigation from './navigation';
 
 const Header = ({ title, isRootPage }) => (

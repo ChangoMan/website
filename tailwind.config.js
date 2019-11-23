@@ -18,7 +18,7 @@ module.exports = {
       '4xl': '2.25rem',
       '5xl': '3rem',
       '6xl': '4rem',
-      'display-title': '7rem',
+      'display-title': '9rem',
     },
   },
   variants: {},

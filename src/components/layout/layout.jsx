@@ -7,16 +7,18 @@ const Layout = ({ location, title, children }) => {
   const header = <Header title={title} isRootPage={location.pathname === rootPath} />;
 
   return (
-    <div
-      className="mx-auto max-w-6xl py-10 px-5"
-    >
-      <header>{header}</header>
-      <main>{children}</main>
-      <footer className="text-center">
-        Anson Lichtfuss ©
-        {' '}
-        {new Date().getFullYear()}
-      </footer>
+    <div className="overflow-x-hidden">
+      <div
+        className="mx-auto max-w-5xl py-10 px-5"
+      >
+        <header>{header}</header>
+        <main>{children}</main>
+        <footer className="text-center">
+          Anson Lichtfuss ©
+          {' '}
+          {new Date().getFullYear()}
+        </footer>
+      </div>
     </div>
   );
 };
