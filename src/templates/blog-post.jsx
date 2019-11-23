@@ -1,10 +1,9 @@
+import { graphql, Link } from 'gatsby';
 import React from 'react';
-import { Link, graphql } from 'gatsby';
-
 import Bio from '../components/bio';
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
-import { rhythm, scale } from '../utils/typography';
+
 
 const BlogPostTemplate = ({
   data,
@@ -22,38 +21,21 @@ const BlogPostTemplate = ({
         description={post.frontmatter.description || post.excerpt}
       />
       <h1
-        style={{
-          marginTop: rhythm(1),
-          marginBottom: 0,
-        }}
+        className="mt-1 mb-0"
       >
         {post.frontmatter.title}
       </h1>
       <p
-        style={{
-          ...scale(-1 / 5),
-          display: 'block',
-          marginBottom: rhythm(1),
-        }}
+        className="block mb-4 block text-xs"
       >
         {post.frontmatter.date}
       </p>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      <hr
-        style={{
-          marginBottom: rhythm(1),
-        }}
-      />
+      <hr className="mb-8" />
       <Bio />
 
       <ul
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'space-between',
-          listStyle: 'none',
-          padding: 0,
-        }}
+        className="flex flex-wrap justify-between p-0 list-none"
       >
         <li>
           {previous && (

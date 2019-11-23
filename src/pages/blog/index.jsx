@@ -2,7 +2,6 @@ import { graphql, Link } from 'gatsby';
 import React from 'react';
 import Layout from '../../components/layout/layout';
 import SEO from '../../components/seo';
-import { rhythm } from '../../utils/typography';
 
 
 const BlogIndex = ({ data, location }) => {
@@ -12,18 +11,16 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Blog" />
-      <div style={{ maxWidth: rhythm(24), margin: '0 auto' }}>
-        <h2 style={{ fontWeight: 900, fontFamily: 'Work Sans', fontSize: '7rem' }}>BLOG</h2>
+      <div className="max-w-2xl my-0 mx-auto">
+        <h2 className="font-black font-display text-display-title">BLOG</h2>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug;
           return (
             <div key={node.fields.slug}>
               <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
+                className="mb-1"
               >
-                <Link style={{ boxShadow: 'none' }} to={`/blog${node.fields.slug}`}>
+                <Link to={`/blog${node.fields.slug}`}>
                   {title}
                 </Link>
               </h3>

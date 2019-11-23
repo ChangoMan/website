@@ -1,7 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { Link } from 'gatsby';
 import React, { useState } from 'react';
-import { rhythm } from '../../utils/typography';
 
 const navLinks = [
   {
@@ -42,7 +41,7 @@ const Navigation = ({ title, isRootPage }) => {
       <AnimatePresence>
         {navOpen && (
           <motion.div
-            className="nav-overlay"
+            className="nav-overlay absolute top-0 left-0 w-screen h-screen bg-black z-10"
             animate={{
               opacity: navOpen ? 1 : 0,
             }}
@@ -50,13 +49,7 @@ const Navigation = ({ title, isRootPage }) => {
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="nav-links"
-              style={{
-                marginLeft: 'auto',
-                marginRight: 'auto',
-                maxWidth: rhythm(48),
-                padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-              }}
+              className="nav-links relative z-10 flex flex-col items-end color-white mt-16 max-w-6xl mx-auto py-10 px-5"
               variants={container}
               initial="hidden"
               animate="show"
@@ -68,9 +61,7 @@ const Navigation = ({ title, isRootPage }) => {
                 >
                   <Link
                     to={link.path}
-                    style={{
-                      fontWeight: '300', textDecoration: 'none', color: '#fff', textTransform: 'uppercase', letterSpacing: '2px', fontSize: '3em',
-                    }}
+                    className="font-light text-white uppercase tracking-widest text-5xl"
                   >
                     {link.title}
                   </Link>
@@ -81,9 +72,9 @@ const Navigation = ({ title, isRootPage }) => {
         )}
       </AnimatePresence>
 
-      <div className="hamburger-menu" onClick={() => setNavOpen((navStatus) => !navStatus)}>
+      <div className="hamburger-menu flex flex-col items-end cursor-pointer relative z-10 w-6" onClick={() => setNavOpen((navStatus) => !navStatus)}>
         <motion.div
-          className="button-bars-before"
+          className="button-bars-before w-6 bg-black rounded mb-2"
           animate={{
             background: navOpen ? ['#000', '#fff', '#fff', '#fff', '#fff'] : ['#fff', '#000', '#000', '#000', '#000'],
             y: navOpen ? [0, 10, 10, 10] : [10, 10, 10, 0],
@@ -91,9 +82,9 @@ const Navigation = ({ title, isRootPage }) => {
           }}
           transition={{ ease: 'linear', duration: 0.3 }}
         />
-        <motion.div className="button-bars" animate={{ opacity: navOpen ? 0 : 1 }} />
+        <motion.div className="button-bars block w-6 relative bg-black rounded" animate={{ opacity: navOpen ? 0 : 1 }} />
         <motion.div
-          className="button-bars-after"
+          className="button-bars-after w-6 bg-black rounded mt-2"
           animate={{
             background: navOpen ? ['#000', '#fff', '#fff', '#fff', '#fff'] : ['#fff', '#000', '#000', '#000', '#000'],
             y: navOpen ? [0, -10, -10, -10] : [-10, -10, -10, 0],
@@ -104,63 +95,21 @@ const Navigation = ({ title, isRootPage }) => {
       </div>
       <style jsx>
         {`
-      .hamburger-menu {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        width: 28px;
-        cursor: pointer;
-        box-sizing: content-box;
-        position: relative;
-        z-index: 999;
-      }
       .hamburger-menu :global(.button-bars) {
-        display: block;
-        width: 28px;
         height: 2px;
-        background: black;
-        border-radius: 3px;
-        position: relative;
         transition: all 0.1s ease-in-out;
       }
       .hamburger-menu :global(.button-bars-before),
       .hamburger-menu :global(.button-bars-after) {
-        width: 28px;
         height: 2px;
-        background: black;
-        border-radius: 3px;
         transition: all 0.1s ease-in-out;
-      }
-      .hamburger-menu :global(.button-bars-before) {
-        margin-bottom: 8px;
-      }
-      .hamburger-menu :global(.button-bars-after) {
-        margin-top: 8px;
-      }
-      .hamburger-menu:hover .button-bars {
       }
       .hamburger-menu:hover :global(.button-bars-before),
       .hamburger-menu:hover :global(.button-bars-after) {
         width: 28px;
       }
       .nav-container :global(.nav-overlay) {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: #000;
-        z-index: 999;
         opacity: 0.2;
-      }
-      .nav-container :global(.nav-links) {
-        position: relative;
-        z-index: 9999;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        color: #fff;
-        margin-top: 4rem;
       }
     `}
       </style>

@@ -1,6 +1,5 @@
 import React from 'react';
 import '../../css/global.css';
-import { rhythm } from '../../utils/typography';
 import Header from './header';
 
 const Layout = ({ location, title, children }) => {
@@ -9,16 +8,11 @@ const Layout = ({ location, title, children }) => {
 
   return (
     <div
-      style={{
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        maxWidth: rhythm(48),
-        padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-      }}
+      className="mx-auto max-w-6xl py-10 px-5"
     >
       <header>{header}</header>
       <main>{children}</main>
-      <footer style={{ textAlign: 'center' }}>
+      <footer className="text-center">
         Anson Lichtfuss ©
         {' '}
         {new Date().getFullYear()}

@@ -1,39 +1,20 @@
 import { Link } from 'gatsby';
 import React from 'react';
-import { rhythm, scale } from '../../utils/typography';
 import Logo from '../logo';
 import Navigation from './navigation';
 
 const Header = ({ title, isRootPage }) => (
-  <div style={{
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: rhythm(1.5),
-  }}
-  >
-
+  <div className="flex items-center justify-between mb-10">
     <h1
-      style={{
-        ...scale(0.25),
-        marginTop: 0,
-        marginBottom: 0,
-        paddingBottom: 0,
-        fontFamily: 'Work Sans',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-      }}
+      className="m-0 pb-0 font-display flex items-center justify-between text-lg"
     >
-      <Logo style={{ width: '65px', height: '65px' }} strokeWidth={5} />
+      <Logo style={{ width: '55px', height: '55px' }} strokeWidth={5} />
       <Link
         to="/"
-        style={{
-          fontWeight: '300', textDecoration: 'none', color: 'black', textTransform: 'uppercase', letterSpacing: '2px', marginLeft: '1rem',
-        }}
+        className="ml-4 font-light text-black uppercase tracking-widest"
       >
         {/* {title} */}
-        <strong style={{ fontWeight: '600' }}>Anson</strong>
+        <strong className="font-semibold">Anson</strong>
         {' '}
         Lichtfuss
       </Link>
