@@ -3,14 +3,14 @@ module.exports = {
     title: 'Anson Lichtfuss',
     author: 'Anson Lichtfuss',
     description: 'A starter blog demonstrating what Gatsby can do.',
-    siteUrl: 'https://gatsby-starter-blog-demo.netlify.com/',
+    siteUrl: 'https://lichtf.us/',
     social: {
-      twitter: 'kylemathews',
+      twitter: 'ansonlichtfuss',
     },
   },
   plugins: [
+    'gatsby-plugin-postcss',
     'gatsby-plugin-styled-jsx',
-    'gatsby-plugin-theme-ui',
     {
       resolve: 'gatsby-source-filesystem',
       options: {

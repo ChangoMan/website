@@ -1,6 +1,5 @@
-/** @jsx jsx */
 import { Link } from 'gatsby';
-import { jsx } from 'theme-ui';
+import React from 'react';
 import { rhythm, scale } from '../../utils/typography';
 import Logo from '../logo';
 import Navigation from './navigation';
@@ -24,8 +23,6 @@ const Header = ({ title, isRootPage }) => (
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-      }}
-      sx={{
       }}
     >
       <Logo style={{ width: '65px', height: '65px' }} strokeWidth={5} />

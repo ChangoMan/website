@@ -1,8 +1,6 @@
-/** @jsx jsx */
 import { AnimatePresence, motion } from 'framer-motion';
 import { Link } from 'gatsby';
-import { useState } from 'react';
-import { jsx } from 'theme-ui';
+import React, { useState } from 'react';
 import { rhythm } from '../../utils/typography';
 
 const navLinks = [
@@ -25,7 +23,7 @@ const container = {
   show: {
     opacity: 1,
     transition: {
-      delayChildren: 0.2,
+      delayChildren: 0.1,
       staggerChildren: 0.1,
     },
   },
@@ -33,7 +31,7 @@ const container = {
 
 const item = {
   hidden: { y: -20, opacity: 0 },
-  show: { y: 0, opacity: 1, transition: { easeOut: 'linear', duration: 0.5} },
+  show: { y: 0, opacity: 1, transition: { easeOut: 'linear', duration: 0.5 } },
 };
 
 
@@ -48,7 +46,7 @@ const Navigation = ({ title, isRootPage }) => {
             animate={{
               opacity: navOpen ? 1 : 0,
             }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.2 }}
             exit={{ opacity: 0 }}
           >
             <motion.div
@@ -87,9 +85,9 @@ const Navigation = ({ title, isRootPage }) => {
         <motion.div
           className="button-bars-before"
           animate={{
-            background: navOpen ? ['#000', '#fff', '#fff'] : ['#fff', '#000', '#000'],
+            background: navOpen ? ['#000', '#fff', '#fff', '#fff', '#fff'] : ['#fff', '#000', '#000', '#000', '#000'],
             y: navOpen ? [0, 10, 10, 10] : [10, 10, 10, 0],
-            rotate: navOpen ? [0, 0, 0, '45deg'] : ['45deg', 0, 0, 0],
+            rotate: navOpen ? [0, 0, 0, 0, '45deg'] : ['45deg', 0, 0, 0, 0],
           }}
           transition={{ ease: 'linear', duration: 0.3 }}
         />
@@ -97,9 +95,9 @@ const Navigation = ({ title, isRootPage }) => {
         <motion.div
           className="button-bars-after"
           animate={{
-            background: navOpen ? ['#000', '#fff', '#fff'] : ['#fff', '#000', '#000'],
+            background: navOpen ? ['#000', '#fff', '#fff', '#fff', '#fff'] : ['#fff', '#000', '#000', '#000', '#000'],
             y: navOpen ? [0, -10, -10, -10] : [-10, -10, -10, 0],
-            rotate: navOpen ? [0, 0, 0, '-45deg'] : ['45deg', 0, 0, 0],
+            rotate: navOpen ? [0, 0, 0, 0, '-45deg'] : ['45deg', 0, 0, 0, 0],
           }}
           transition={{ ease: 'linear', duration: 0.3 }}
         />

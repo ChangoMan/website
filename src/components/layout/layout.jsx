@@ -1,7 +1,7 @@
 import React from 'react';
+import '../../css/global.css';
 import { rhythm } from '../../utils/typography';
 import Header from './header';
-
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`;
