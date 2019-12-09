@@ -50,7 +50,7 @@ const Navigation = ({ title, isRootPage }) => {
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="nav-links relative z-10 flex flex-col items-end color-white mt-16 max-w-6xl mx-auto py-10 px-5"
+              className="nav-links relative z-10 flex flex-col items-end color-white mt-16 max-w-5xl mx-auto py-10 px-5"
               variants={container}
               initial="hidden"
               animate="show"
