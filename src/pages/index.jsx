@@ -7,6 +7,8 @@ import Ticker from '../components/assets/ticker';
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
 
+const contentWidth = 'mx-auto max-w-5xl';
+
 const ParallaxImage = ({ src, ...style }) => {
   const [elementTop, setElementTop] = useState(0);
   const ref = useRef(null);
@@ -22,8 +24,8 @@ const ParallaxImage = ({ src, ...style }) => {
   }, [ref]);
 
   return (
-    <div ref={ref} className="image-container absolute">
-      <motion.div className="overlay" style={{ ...style, y }}><img src={src} alt="" /></motion.div>
+    <div ref={ref} className="image-container absolute" style={{ zIndex: -1 }}>
+      <motion.div className="overlay" style={{ ...style, y, zIndex: -1 }}><img className="object-cover w-full" src={src} alt="" /></motion.div>
     </div>
   );
 };
@@ -35,12 +37,14 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <div>
-      <img className="absolute top-0 opacity-75 -mt-24" style={{ zIndex: -1 }} src="homepageprofile.jpg" />
+      <div className="absolute top-0 opacity-75 -mt-24 w-screen flex justify-center" style={{ zIndex: -1 }}>
+        <img src="homepageprofile.jpg" />
+      </div>
       {/* <img className="section-2-image absolute top-0 right-0 pointer-events-none" src="foreground-grenery-1.png" /> */}
 
-      <Layout location={location} title={siteTitle}>
+      <Layout location={location} title={siteTitle} fullscreenWidth>
         <SEO title="Homepage" />
-        <div className="section-1 relative h-screen mb-24">
+        <div className={`${contentWidth} section-1 relative h-screen mb-24`}>
           <div className="back-layer absolute top-0 w-full h-full">
             <div className="w-1/3 mt-24 ml-48">
               <Plus />
@@ -54,7 +58,7 @@ const BlogIndex = ({ data, location }) => {
         </div>
 
         <div className="section-divider flex items-center justify-center opacity-25 mt-24 mb-24 pt-24 pb-24"><div className="w-8"><Arrow /></div></div>
-        <div className="section-2 relative">
+        <div className={`${contentWidth} section-2 relative`}>
           <div className="text-section text-lg">
             <p>That small little animation as an application loads?</p>
             <p className="font-display uppercase font-black text-2xl ml-12">It matters.</p>
@@ -91,7 +95,7 @@ const BlogIndex = ({ data, location }) => {
           top={200}
         />
         <div className="section-divider flex items-center justify-center opacity-25 mt-24 mb-24 pt-24 pb-24"><div className="w-8"><Arrow /></div></div>
-        <div className="section-3">
+        <div className={`${contentWidth} section-3`}>
           <div className="text-section text-right text-lg">
             <p>The small-town client with big-world dreams.</p>
             <p className="font-display uppercase font-black text-2xl ml-12">She matters.</p>
@@ -111,8 +115,17 @@ const BlogIndex = ({ data, location }) => {
           </div>
         </div>
         <div className="section-divider flex items-center justify-center opacity-25 mt-24 mb-24 pt-24 pb-24"><div className="w-8"><Arrow /></div></div>
+        <ParallaxImage
+          src="major-green-background.png"
+          width="100vw"
+          height="100vh"
+          left={0}
+          top={0}
+        />
         <div className="section-divider text-center pb-24 text-2xl">All of this is only possible because...</div>
-        <div className="section-4 absolute left-0 bg-black w-screen h-screen pb-48 pt-48">
+
+
+        <div className={`${contentWidth} section-4 h-screen pt-48`}>
           <div className="max-w-5xl flex flex-col text-left text-white mx-auto font-black font-display text-display-title uppercase leading-none">
             <div>
               <div>You</div>
@@ -120,8 +133,17 @@ const BlogIndex = ({ data, location }) => {
             </div>
           </div>
         </div>
+
+        <ParallaxImage
+          src="major-green-background.png"
+          width="100vw"
+          height="100vh"
+          left={0}
+          top={200}
+        />
         <div className="spaceholder w-screen h-screen" />
-        <div className="section-4 absolute left-0 bg-black w-screen pb-48 pt-48">
+
+        <div className={`${contentWidth} section-5 pb-48`}>
           <div className="max-w-5xl flex flex-col text-left text-white mx-auto font-semibold font-display text-6xl leading-none">
             <div>
               <div>let's dive in.</div>
