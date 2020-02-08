@@ -13,24 +13,32 @@ const BlogIndex = ({ data, location }) => {
   const posts = allMarkdownRemark.edges;
 
   return (
-    <div>
-      <div
-        className="absolute top-0 opacity-75 -mt-24 w-screen flex justify-center"
-        style={{ zIndex: -1 }}
-      >
-        <img src="homepageprofile.jpg" />
+    <div className="relative">
+      <div className="absolute opacity-75 overflow-hidden w-screen h-screen">
+        <div
+          className="flex justify-center object-contain"
+          style={{
+            top: '-5%',
+            left: '-10%',
+            width: 'calc(100vw + 20%)',
+            height: 'calc(100vh + 20%)',
+            zIndex: -1
+          }}
+        >
+          <img className="h-full w-auto" src="homepageprofile.jpg" />
+        </div>
       </div>
       {/* <img className="section-2-image absolute top-0 right-0 pointer-events-none" src="foreground-grenery-1.png" /> */}
 
-      <Layout location={location} title={siteTitle} fullscreenWidth>
+      <Layout location={location} title={siteTitle}>
         <SEO title="Homepage" />
-        <div className={`${contentWidth} section-1 relative h-screen mb-24`}>
+        <div className={`${contentWidth} section-1 relative`}>
           <div className="back-layer absolute top-0 w-full h-full">
-            <div className="w-1/3 mt-24 ml-48">
+            <div className="w-1/3 opacity-75 ml-48">
               <Plus />
             </div>
           </div>
-          <div className="front-layer absolute top-0 right-0 flex flex-col items-end mt-24 w-full">
+          <div className="front-layer top-0 right-0 flex flex-col items-end w-full">
             <div className="font-black font-display text-display-title uppercase leading-none">
               Designer
             </div>
