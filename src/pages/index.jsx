@@ -13,37 +13,50 @@ const BlogIndex = ({ data, location }) => {
   const posts = allMarkdownRemark.edges;
 
   return (
-    <div className="relative">
-      <div className="absolute opacity-75 overflow-hidden w-screen h-screen">
+    <Layout location={location} title={siteTitle}>
+      <SEO title="Homepage" />
+      <div className="relative lg:static">
         <div
-          className="flex justify-center object-contain"
-          style={{
-            top: '-5%',
-            left: '-10%',
-            width: 'calc(100vw + 20%)',
-            height: 'calc(100vh + 20%)',
-            zIndex: -1
-          }}
+          className="absolute opacity-75 h-full min-h-screen top-0 left-0 w-full"
+          style={{ zIndex: -1 }}
         >
-          <img className="h-full w-auto" src="homepageprofile.jpg" />
+          <img
+            style={{ width: '100%', height: '100%' }}
+            className="object-cover lg:object-contain"
+            src="homepageprofile.jpg"
+          />
         </div>
-      </div>
-      {/* <img className="section-2-image absolute top-0 right-0 pointer-events-none" src="foreground-grenery-1.png" /> */}
-
-      <Layout location={location} title={siteTitle}>
-        <SEO title="Homepage" />
         <div className={`${contentWidth} section-1 relative`}>
-          <div className="back-layer absolute top-0 w-full h-full">
-            <div className="w-1/3 opacity-75 ml-48">
+          <div
+            className="back-layer absolute top-0 min-w-full min-h-full"
+            style={{ zIndex: -1 }}
+          >
+            <div
+              className="opacity-75 mx-auto lg:ml-48 mt-12 lg:mt-0"
+              style={{ width: '22rem' }}
+            >
               <Plus />
             </div>
           </div>
-          <div className="front-layer top-0 right-0 flex flex-col items-end w-full">
-            <div className="font-black font-display text-display-title uppercase leading-none">
-              Designer
+          <div className="front-layer top-0 right-0 flex flex-col justify-center items-center lg:items-end w-full">
+            <div className="text-right hidden lg:block">
+              <div className="font-black font-display text-display-title uppercase leading-none">
+                Designer
+              </div>
+              <div className="font-black font-display text-display-title uppercase leading-none">
+                Developer
+              </div>
             </div>
-            <div className="font-black font-display text-display-title uppercase leading-none">
-              Developer
+            <div
+              className="text-right lg:hidden"
+              style={{ writingMode: 'vertical-lr' }}
+            >
+              <div className="font-black font-display text-display-title uppercase leading-none">
+                Designer
+              </div>
+              <div className="font-black font-display text-display-title uppercase leading-none">
+                Developer
+              </div>
             </div>
             <Ticker
               textItems={[
@@ -58,8 +71,8 @@ const BlogIndex = ({ data, location }) => {
             />
           </div>
         </div>
-      </Layout>
-    </div>
+      </div>
+    </Layout>
   );
 };
 
