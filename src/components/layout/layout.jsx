@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import '../../css/global.css';
 import Header from './header';
 
@@ -22,10 +23,21 @@ const Layout = ({ location, title, children, fullscreenWidth }) => {
         <footer
           className={`${
             fullscreenWidth ? 'mx-auto max-w-5xl' : ''
-          } text-center text-xl opacity-25 mt-8`}
+          } flex items-center justify-between text-center text-xl opacity-25 mt-8`}
           title={`Anson Lichtfuss © ${new Date().getFullYear()}`}
         >
-          <strong>©</strong>
+          <strong className="mr-6">©</strong>
+          <span className="flex">
+            <a className="ml-6" href="#">
+              <FaLinkedin />
+            </a>
+            <a className="ml-3" href="#">
+              <FaTwitter />
+            </a>
+            <a className="ml-3" href="#">
+              <FaInstagram />
+            </a>
+          </span>
         </footer>
       </div>
     </div>
