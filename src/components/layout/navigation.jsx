@@ -1,7 +1,9 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { Link } from 'gatsby';
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import GlobalContext from '../../context/GlobalContext';
+import Logo from '../assets/logo';
 
 const navLinks = [
   {
@@ -22,17 +24,17 @@ const socialLinks = [
   {
     title: 'Instagram',
     icon: <FaInstagram />,
-    path: '/test'
+    path: '/1test'
   },
   {
     title: 'Twitter',
     icon: <FaTwitter />,
-    path: '/test'
+    path: '/t2est'
   },
   {
     title: 'LinkedIn',
     icon: <FaLinkedin />,
-    path: '/test'
+    path: '/t4est'
   }
 ];
 
@@ -58,31 +60,54 @@ const horizontalItem = {
 };
 
 const Navigation = ({ title, isRootPage }) => {
-  const [navOpen, setNavOpen] = useState(false);
-  console.log('⛱ navOpen:', navOpen);
+  const dispatch = useContext(GlobalContext.Dispatch);
+  const { navOpen } = useContext(GlobalContext.State);
+  const [animateNav, setAnimateNav] = useState(false);
+
+  useEffect(() => {
+    dispatch({ type: 'CLOSE_NAV' });
+    setAnimateNav(true);
+  }, [dispatch]);
+
   return (
     <div className="nav-container">
-      <AnimatePresence>
+      <AnimatePresence initial={animateNav}>
         {navOpen && (
           <motion.div
-            className="nav-overlay absolute top-0 left-0 w-screen h-screen bg-black z-10"
-            animate={{
-              opacity: navOpen ? 1 : 0
-            }}
-            transition={{ duration: 0.2 }}
+            key="nav-overlay"
+            className="nav-overlay absolute top-0 left-0 w-screen h-screen bg-black z-10  overflow-y-auto"
+            enter={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
           >
             <motion.div
-              className="nav-links relative z-10 flex flex-col items-end color-white max-w-5xl mt-16 mx-auto py-10 px-5"
+              key="logo-background"
+              className="logo-background fixed bottom-0 left-0 z-20 w-screen h-screen overflow-hidden opacity-50 pointer-events-none"
+              initial={{ opacity: 0, y: '50px' }}
+              animate={{ opacity: 0.1, y: 0 }}
+              exit={{ opacity: 0, y: '50px' }}
+              transition={{ ease: [0.165, 0.84, 0.44, 1], duration: 1 }}
+            >
+              <Logo
+                className="md:w-screen"
+                style={{ maxWidth: '150vw', height: '150vh' }}
+                strokeColor="#fff"
+              />
+            </motion.div>
+            <motion.div
+              key="nav-links"
+              className="nav-links flex flex-col items-end color-white max-w-5xl mt-16 mx-auto py-10 px-5"
               variants={container}
-              initial="hidden"
+              initial={animateNav ? 'hidden' : false}
               animate="show"
             >
               {navLinks.map(link => (
                 <motion.div key={link.path} variants={verticalItem}>
                   <Link
                     to={link.path}
-                    className="font-light text-white uppercase tracking-wider text-5xl font-display"
+                    className="link font-black uppercase leading-tight text-white uppercase tracking-wider text-6xl font-display"
+                    activeClassName="active"
                   >
                     {link.title}
                   </Link>
@@ -90,9 +115,10 @@ const Navigation = ({ title, isRootPage }) => {
               ))}
             </motion.div>
             <motion.div
-              className="nav-links relative z-10 flex flex-row-reverse items-center justify-start color-white mt-2 h-8 max-w-5xl mx-auto py-10 px-5"
+              key="social-links"
+              className="social-links flex flex-row-reverse items-center justify-start color-white mt-2 h-8 max-w-5xl mx-auto py-10 px-5"
               variants={container}
-              initial="hidden"
+              initial={animateNav ? 'hidden' : false}
               animate="show"
             >
               {socialLinks.map(link => (
@@ -101,12 +127,12 @@ const Navigation = ({ title, isRootPage }) => {
                   key={link.path}
                   variants={horizontalItem}
                 >
-                  <Link
-                    to={link.path}
-                    className="font-light text-white uppercase tracking-widest text-3xl"
+                  <a
+                    href={link.path}
+                    className="inline-block link font-light text-white uppercase tracking-widest text-3xl"
                   >
                     {link.icon}
-                  </Link>
+                  </a>
                 </motion.div>
               ))}
             </motion.div>
@@ -116,47 +142,102 @@ const Navigation = ({ title, isRootPage }) => {
 
       <div
         className="hamburger-menu flex flex-col items-end cursor-pointer relative z-10 w-6"
-        onClick={() => setNavOpen(navStatus => !navStatus)}
+        onClick={() => dispatch({ type: 'TOGGLE_NAV' })}
       >
         <motion.div
-          className="button-bars-before w-6 bg-black rounded mb-2"
+          className="button-bars-before w-6 rounded mb-2"
           animate={{
-            background: navOpen ? '#fff' : '#000',
+            backgroundColor: navOpen ? '#fff' : '#000',
             y: navOpen ? 10 : 0,
             rotate: navOpen ? '45deg' : 0
           }}
-          transition={{ ease: 'linear', duration: 0.3 }}
+          transition={{ ease: 'linear', duration: animateNav ? 0.3 : 0 }}
         />
         <motion.div
           className="button-bars block w-6 relative bg-black rounded"
           animate={{ opacity: navOpen ? 0 : 1 }}
+          transition={{ ease: 'linear', duration: animateNav ? 0.3 : 0 }}
         />
         <motion.div
-          className="button-bars-after w-6 bg-black rounded mt-2"
-          initial={{ y: 0 }}
+          className="button-bars-after w-6 rounded mt-2"
+          // initial={{ y: 0 }}
           animate={{
-            background: navOpen ? '#fff' : '#000',
+            backgroundColor: navOpen ? '#fff' : '#000',
             y: navOpen ? -10 : 0,
             rotate: navOpen ? '-45deg' : 0
           }}
-          transition={{ ease: 'linear', duration: 0.3 }}
+          transition={{ ease: 'linear', duration: animateNav ? 0.3 : 0 }}
         />
       </div>
       <style jsx>
         {`
-          .hamburger-menu :global(.button-bars) {
-            height: 2px;
-          }
           .hamburger-menu :global(.button-bars-before),
+          .hamburger-menu :global(.button-bars),
           .hamburger-menu :global(.button-bars-after) {
             height: 2px;
+            transition: width 0.3s ease;
           }
           .hamburger-menu:hover :global(.button-bars-before),
+          .hamburger-menu:hover :global(.button-bars),
           .hamburger-menu:hover :global(.button-bars-after) {
             width: 28px;
           }
           .nav-container :global(.nav-overlay) {
             opacity: 0.2;
+          }
+          .nav-container :global(.nav-links .link) {
+            display: block;
+            opacity: 1;
+            transition: all 0.2s ease;
+          }
+          .nav-container :global(.nav-links .link.active) {
+            pointer-events: none;
+            position: relative;
+          }
+          .nav-container :global(.nav-links .link:after) {
+            content: 'You are here.';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            text-shadow: none;
+            font-size: 1rem;
+            font-weight: normal;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+          }
+          .nav-container :global(.nav-links .link.active:after) {
+            opacity: 1;
+          }
+          .nav-container :global(.nav-links:hover .link) {
+            opacity: 0.5;
+          }
+          .nav-container :global(.nav-links:hover .link.active) {
+            opacity: 1;
+          }
+          .nav-container :global(.nav-links:hover .link:hover) {
+            opacity: 1;
+            color: #fff;
+            text-shadow: 6px 6px #999, 12px 12px #444;
+            transform: translateX(-12px);
+          }
+          .nav-container :global(.social-links .link) {
+            opacity: 1;
+            transform: scale(1);
+            transition: all 0.2s ease;
+          }
+          .nav-container :global(.social-links:hover .link) {
+            opacity: 0.5;
+          }
+          .nav-container :global(.social-links:hover .link:hover) {
+            opacity: 1;
+            transform: scale(1.25);
           }
         `}
       </style>
