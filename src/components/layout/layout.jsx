@@ -29,18 +29,31 @@ const Layout = ({ location, title, children, fullscreenWidth }) => {
         <footer
           className={`${
             fullscreenWidth ? 'mx-auto max-w-5xl' : ''
-          } flex items-center justify-between text-center text-xl opacity-25 mt-8`}
-          title={`Anson Lichtfuss © ${new Date().getFullYear()}`}
+          } flex items-center justify-between text-center text-xl mt-8`}
         >
-          <strong className="mr-6">©</strong>
+          <strong
+            className="mr-6 opacity-25"
+            title={`Anson Lichtfuss © ${new Date().getFullYear()}`}
+          >
+            ©
+          </strong>
           <span className="flex">
-            <a className="ml-6" href="#">
+            <a
+              className="ml-6 transition-opacity duration-200 opacity-25 hover:opacity-100"
+              href="#"
+            >
               <FaLinkedin />
             </a>
-            <a className="ml-3" href="#">
+            <a
+              className="ml-3 transition-opacity duration-200 opacity-25 hover:opacity-100"
+              href="#"
+            >
               <FaTwitter />
             </a>
-            <a className="ml-3" href="#">
+            <a
+              className="ml-3 transition-opacity duration-200 opacity-25 hover:opacity-100"
+              href="#"
+            >
               <FaInstagram />
             </a>
           </span>
