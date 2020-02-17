@@ -84,7 +84,7 @@ const Navigation = ({ title, isRootPage }) => {
             <motion.div
               key="logo-background"
               className="logo-background fixed bottom-0 left-0 z-20 w-screen h-screen overflow-hidden opacity-50 pointer-events-none"
-              initial={{ opacity: 0, y: '50px' }}
+              initial={animateNav ? { opacity: 0, y: '50px' } : false}
               animate={{ opacity: 0.1, y: 0 }}
               exit={{ opacity: 0, y: '50px' }}
               transition={{ ease: [0.165, 0.84, 0.44, 1], duration: 1 }}
