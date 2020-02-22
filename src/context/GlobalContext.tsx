@@ -1,11 +1,11 @@
 import React from 'react';
 
-// Context
-const State = React.createContext();
-const Dispatch = React.createContext();
-
 // Initial State
 const initialState = { navOpen: false };
+
+// Context
+const State = React.createContext(initialState);
+const Dispatch = React.createContext();
 
 // Reducer
 const reducer = (state: any, action: any) => {
