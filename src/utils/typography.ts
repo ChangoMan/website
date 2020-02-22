@@ -5,8 +5,8 @@ delete GithubTheme.googleFonts;
 
 GithubTheme.overrideThemeStyles = ({ rhythm }, options) => ({
   'h1,h2': {
-    borderBottom: 'none',
-  },
+    borderBottom: 'none'
+  }
 });
 
 const typography = new Typography(GithubTheme);

@@ -70,6 +70,8 @@ module.exports = {
     },
     'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
-    `gatsby-plugin-remove-trailing-slashes`
+    `gatsby-plugin-remove-trailing-slashes`,
+    'gatsby-plugin-typescript',
+    'gatsby-plugin-tslint'
   ]
 };
