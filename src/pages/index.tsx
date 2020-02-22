@@ -59,6 +59,7 @@ const BlogIndex = () => (
               'Accessibility',
               'Javascript',
               'Graphic Design',
+              'TypeScript',
               'GatsbyJS',
               'Object Oriented Programming',
               'Functional Programming'
