@@ -3,13 +3,19 @@ import React from 'react';
 import Layout from '../../components/layout/layout';
 import SEO from '../../components/seo';
 
+interface Props {
+  data: {
+    allMarkdownRemark: {
+      edges: object[];
+    };
+  };
+}
 
-const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title;
+const BlogIndex = ({ data, location }: Props) => {
   const posts = data.allMarkdownRemark.edges;
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout>
       <SEO title="Blog" />
       <div className="max-w-2xl my-0 mx-auto">
         <h2 className="font-black font-display text-display-title">BLOG</h2>
@@ -17,17 +23,13 @@ const BlogIndex = ({ data, location }) => {
           const title = node.frontmatter.title || node.fields.slug;
           return (
             <div key={node.fields.slug}>
-              <h3
-                className="mb-1"
-              >
-                <Link to={`/blog${node.fields.slug}`}>
-                  {title}
-                </Link>
+              <h3 className="mb-1">
+                <Link to={`/blog${node.fields.slug}`}>{title}</Link>
               </h3>
               <small>{node.frontmatter.date}</small>
               <p
                 dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
+                  __html: node.frontmatter.description || node.excerpt
                 }}
               />
             </div>

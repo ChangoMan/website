@@ -59,7 +59,7 @@ const horizontalItem = {
   show: { x: 0, opacity: 1, transition: { easeOut: 'linear', duration: 0.5 } }
 };
 
-const Navigation = ({ title, isRootPage }) => {
+const Navigation = () => {
   const dispatch = useContext(GlobalContext.Dispatch);
   const { navOpen } = useContext(GlobalContext.State);
   const [animateNav, setAnimateNav] = useState(false);

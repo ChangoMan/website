@@ -8,7 +8,7 @@ const Dispatch = React.createContext();
 const initialState = { navOpen: false };
 
 // Reducer
-const reducer = (state, action) => {
+const reducer = (state: any, action: any) => {
   switch (action.type) {
     case 'TOGGLE_NAV':
       return {
@@ -26,7 +26,11 @@ const reducer = (state, action) => {
 };
 
 // Provider
-const Provider = ({ children }) => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const Provider = ({ children }: Props) => {
   const [state, dispatch] = React.useReducer(reducer, initialState);
 
   return (

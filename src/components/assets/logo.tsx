@@ -1,7 +1,19 @@
 import { motion } from 'framer-motion';
 import React from 'react';
 
-const Logo = ({ style, className, strokeWidth = 3, strokeColor = '#000' }) => (
+interface Props {
+  style?: object;
+  className?: string;
+  strokeWidth?: number;
+  strokeColor?: string;
+}
+
+const Logo = ({
+  style,
+  className,
+  strokeWidth = 3,
+  strokeColor = '#000'
+}: Props) => (
   <svg
     style={style}
     className={className}
