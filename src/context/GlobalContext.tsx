@@ -3,12 +3,8 @@ import React from 'react';
 // Initial State
 const initialState = { navOpen: false };
 
-// Context
-const State = React.createContext(initialState);
-const Dispatch = React.createContext();
-
 // Reducer
-const reducer = (state: any, action: any) => {
+const reducer = (state: any, action?: any) => {
   switch (action.type) {
     case 'TOGGLE_NAV':
       return {
@@ -24,6 +20,10 @@ const reducer = (state: any, action: any) => {
       return state;
   }
 };
+
+// Context
+const State = React.createContext(initialState);
+const Dispatch = React.createContext(reducer);
 
 // Provider
 interface Props {
