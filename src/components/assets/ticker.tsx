@@ -1,14 +1,17 @@
 import React, { useMemo } from 'react';
 
+interface Props {
+  textItems: string[];
+  repeatLength?: number;
+}
+
 const Ticker = ({
   textItems = ['default', 'value'],
-  fullWidth = true,
-  animate = false,
   repeatLength = 5
-}) => {
+}: Props) => {
   const [initialString, printedValue] = useMemo(() => {
-    let initialString = '';
-    const value = [];
+    let thisInitialString = '';
+    const value: string[] = [];
     for (let i = 0; i < repeatLength; i++) {
       textItems.forEach((item, index) => {
         value.push(item);
@@ -17,10 +20,10 @@ const Ticker = ({
       });
 
       if (i === 0) {
-        initialString = value.slice(0, -1).join('');
+        thisInitialString = value.slice(0, -1).join('');
       }
     }
-    return [initialString, value];
+    return [thisInitialString, value];
   }, [repeatLength, textItems]);
 
   return (

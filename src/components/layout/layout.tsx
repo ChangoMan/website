@@ -4,12 +4,14 @@ import GlobalContext from '../../context/GlobalContext';
 import '../../css/global.css';
 import Header from './header';
 
-const Layout = ({ location, title, children, fullscreenWidth }) => {
+interface Props {
+  children: object;
+  fullscreenWidth?: boolean;
+}
+
+const Layout = ({ children, fullscreenWidth }: Props) => {
   const { navOpen } = useContext(GlobalContext.State);
-  const rootPath = `${__PATH_PREFIX__}/`;
-  const header = (
-    <Header title={title} isRootPage={location.pathname === rootPath} />
-  );
+  const header = <Header />;
 
   return (
     <div
@@ -22,7 +24,7 @@ const Layout = ({ location, title, children, fullscreenWidth }) => {
           fullscreenWidth ? '' : 'mx-auto max-w-5xl px-5'
         } py-5 flex flex-col min-h-screen justify-between`}
       >
-        <header className={fullscreenWidth && 'mx-auto max-w-5xl'}>
+        <header className={fullscreenWidth ? 'mx-auto max-w-5xl' : ''}>
           {header}
         </header>
         <main>{children}</main>

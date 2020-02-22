@@ -4,13 +4,44 @@ import Bio from '../components/bio';
 import Layout from '../components/layout/layout';
 import SEO from '../components/seo';
 
-const BlogPostTemplate = ({ data, pageContext, location }) => {
+interface Props {
+  data: {
+    markdownRemark: {
+      frontmatter: {
+        title: string;
+        description: string;
+        date: string;
+      };
+      excerpt: string;
+      html: string;
+    };
+  };
+  pageContext: {
+    previous: {
+      fields: {
+        slug: string;
+      };
+      frontmatter: {
+        title: string;
+      };
+    };
+    next: {
+      fields: {
+        slug: string;
+      };
+      frontmatter: {
+        title: string;
+      };
+    };
+  };
+}
+
+const BlogPostTemplate = ({ data, pageContext }: Props) => {
   const post = data.markdownRemark;
-  const siteTitle = data.site.siteMetadata.title;
   const { previous, next } = pageContext;
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}

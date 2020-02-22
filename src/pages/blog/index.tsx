@@ -3,12 +3,19 @@ import React from 'react';
 import Layout from '../../components/layout/layout';
 import SEO from '../../components/seo';
 
-const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title;
+interface Props {
+  data: {
+    allMarkdownRemark: {
+      edges: object[];
+    };
+  };
+}
+
+const BlogIndex = ({ data, location }: Props) => {
   const posts = data.allMarkdownRemark.edges;
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout>
       <SEO title="Blog" />
       <div className="max-w-2xl my-0 mx-auto">
         <h2 className="font-black font-display text-display-title">BLOG</h2>
