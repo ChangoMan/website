@@ -76,7 +76,7 @@ const Navigation = () => {
           <motion.div
             key="nav-overlay"
             className="nav-overlay absolute top-0 left-0 w-screen h-screen bg-black z-10  overflow-y-auto"
-            enter={{ opacity: 0 }}
+            initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
