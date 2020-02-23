@@ -91,7 +91,7 @@
     "type-check": "tsc --noEmit",
     "lint": "tslint --project .",
     "commit": "./node_modules/.bin/git-cz",
-    "release": "standard-version --pre-release"
+    "release": "standard-version"
   },
   "husky": {
     "hooks": {
