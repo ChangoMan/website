@@ -208,11 +208,11 @@ const Navigation = () => {
             content: 'You are here.';
             position: absolute;
             top: 0;
-            left: 0;
-            width: 100%;
+            left: -5%;
+            width: 110%;
             height: 100%;
             background: rgba(0, 0, 0, 0.7);
-            ftext-shadow: none;
+            text-shadow: none;
             font-size: 1rem;
             font-weight: normal;
             display: flex;
@@ -231,6 +231,7 @@ const Navigation = () => {
           .nav-container :global(.nav-links:hover .link.active) {
             opacity: 1;
           }
+          .nav-container :global(.nav-links .link.active),
           .nav-container :global(.nav-links:hover .link:hover) {
             opacity: 1;
             color: #fff;
