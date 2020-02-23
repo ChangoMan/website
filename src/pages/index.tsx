@@ -7,7 +7,7 @@ import SEO from '../components/seo';
 
 const contentWidth = 'mx-auto max-w-5xl';
 
-const BlogIndex = () => (
+const SiteIndex = () => (
   <Layout>
     <SEO title="Homepage" />
     <div className="relative lg:static">
@@ -71,7 +71,7 @@ const BlogIndex = () => (
   </Layout>
 );
 
-export default BlogIndex;
+export default SiteIndex;
 
 export const pageQuery = graphql`
   query {
