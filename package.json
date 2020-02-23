@@ -1,11 +1,11 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "anson-lichtfuss",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
-  "version": "0.1.0",
+  "description": "Personal website for Anson Lichtfuss",
+  "version": "1.0.0-alpha.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/ansonlichtfuss/website/issues"
   },
   "dependencies": {
     "framer-motion": "^1.8.4",
@@ -41,10 +41,15 @@
     "typography-theme-github": "^0.16.19"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@commitlint/prompt": "^8.3.5",
     "@types/node": "^13.7.4",
     "@types/react": "^16.9.22",
     "@types/react-dom": "^16.9.5",
     "@types/react-helmet": "^5.0.15",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-airbnb-base": "^14.0.0",
@@ -55,7 +60,9 @@
     "gatsby-plugin-remove-trailing-slashes": "^2.1.21",
     "gatsby-plugin-tslint": "0.0.2",
     "gatsby-plugin-typescript": "^2.1.27",
+    "husky": "^4.2.3",
     "prettier": "^1.19.1",
+    "standard-version": "^7.1.0",
     "tailwindcss": "^1.2.0",
     "tslint": "^6.0.0",
     "tslint-config-prettier": "^1.18.0",
@@ -64,7 +71,7 @@
     "tslint-react": "^4.2.0",
     "typescript": "^3.8.2"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://github.com/ansonlichtfuss/website",
   "keywords": [
     "gatsby"
   ],
@@ -72,7 +79,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/ansonlichtfuss/website.git"
   },
   "scripts": {
     "build": "gatsby build",
@@ -82,6 +89,82 @@
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
     "type-check": "tsc --noEmit",
-    "lint": "tslint --project ."
+    "lint": "tslint --project .",
+    "commit": "./node_modules/.bin/git-cz",
+    "release": "standard-version --pre-release"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "standard-version": {
+    "types": [
+      {
+        "type": "chore",
+        "section": "Others",
+        "hidden": false
+      },
+      {
+        "type": "revert",
+        "section": "Reverts",
+        "hidden": false
+      },
+      {
+        "type": "feat",
+        "section": "Features",
+        "hidden": false
+      },
+      {
+        "type": "fix",
+        "section": "Bug Fixes",
+        "hidden": false
+      },
+      {
+        "type": "improvement",
+        "section": "Feature Improvements",
+        "hidden": false
+      },
+      {
+        "type": "docs",
+        "section": "Docs",
+        "hidden": false
+      },
+      {
+        "type": "style",
+        "section": "Styling",
+        "hidden": false
+      },
+      {
+        "type": "refactor",
+        "section": "Code Refactoring",
+        "hidden": false
+      },
+      {
+        "type": "perf",
+        "section": "Performance Improvements",
+        "hidden": false
+      },
+      {
+        "type": "test",
+        "section": "Tests",
+        "hidden": false
+      },
+      {
+        "type": "build",
+        "section": "Build System",
+        "hidden": false
+      },
+      {
+        "type": "ci",
+        "section": "CI",
+        "hidden": false
+      }
+    ]
   }
 }
