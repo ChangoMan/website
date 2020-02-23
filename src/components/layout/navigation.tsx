@@ -146,6 +146,11 @@ const Navigation = () => {
       >
         <motion.div
           className="button-bars-before w-6 rounded mb-2"
+          initial={{
+            backgroundColor: navOpen ? '#fff' : '#000',
+            y: navOpen ? 10 : 0,
+            rotate: navOpen ? '45deg' : 0
+          }}
           animate={{
             backgroundColor: navOpen ? '#fff' : '#000',
             y: navOpen ? 10 : 0,
@@ -155,12 +160,17 @@ const Navigation = () => {
         />
         <motion.div
           className="button-bars block w-6 relative bg-black rounded"
+          initial={{ opacity: navOpen ? 0 : 1 }}
           animate={{ opacity: navOpen ? 0 : 1 }}
           transition={{ ease: 'linear', duration: animateNav ? 0.3 : 0 }}
         />
         <motion.div
           className="button-bars-after w-6 rounded mt-2"
-          // initial={{ y: 0 }}
+          initial={{
+            backgroundColor: navOpen ? '#fff' : '#000',
+            y: navOpen ? -10 : 0,
+            rotate: navOpen ? '-45deg' : 0
+          }}
           animate={{
             backgroundColor: navOpen ? '#fff' : '#000',
             y: navOpen ? -10 : 0,
@@ -202,7 +212,7 @@ const Navigation = () => {
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.7);
-            text-shadow: none;
+            ftext-shadow: none;
             font-size: 1rem;
             font-weight: normal;
             display: flex;
