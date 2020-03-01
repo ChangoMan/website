@@ -18,7 +18,7 @@ const AboutIndex = () => (
       >
         <img
           className="relative"
-          style={{ zIndex: -1 }}
+          style={{ zIndex: -1, imageRendering: 'crisp-edges' }}
           src="about-profile-photo.jpg"
         />
       </div>
