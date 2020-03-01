@@ -9,7 +9,7 @@ const Header = () => (
       <Logo style={{ width: '55px', height: '55px' }} strokeWidth={5} />
       <Link
         to="/"
-        className="ml-4 font-light text-black uppercase tracking-widest"
+        className="ml-4 font-light text-black uppercase tracking-widest no-underline"
       >
         {/* {title} */}
         <strong className="font-semibold">Anson</strong> Lichtfuss

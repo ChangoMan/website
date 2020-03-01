@@ -106,7 +106,7 @@ const Navigation = () => {
                 <motion.div key={link.path} variants={verticalItem}>
                   <Link
                     to={link.path}
-                    className="link font-black uppercase leading-tight text-white uppercase tracking-wider text-6xl font-display"
+                    className="link font-black uppercase leading-tight text-white uppercase tracking-wider text-6xl font-display no-underline"
                     activeClassName="active"
                   >
                     {link.title}
@@ -129,7 +129,7 @@ const Navigation = () => {
                 >
                   <a
                     href={link.path}
-                    className="inline-block link font-light text-white uppercase tracking-widest text-3xl"
+                    className="inline-block link font-light text-white uppercase tracking-widest text-3xl no-underline"
                   >
                     {link.icon}
                   </a>
