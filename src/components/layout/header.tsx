@@ -5,7 +5,7 @@ import Navigation from './navigation';
 
 const Header = () => (
   <div className="flex items-center justify-between">
-    <h1 className="m-0 pb-0 font-display flex items-center justify-between text-lg">
+    <span className="m-0 pb-0 font-display flex items-center justify-between text-lg">
       <Logo style={{ width: '55px', height: '55px' }} strokeWidth={5} />
       <Link
         to="/"
@@ -14,7 +14,7 @@ const Header = () => (
         {/* {title} */}
         <strong className="font-semibold">Anson</strong> Lichtfuss
       </Link>
-    </h1>
+    </span>
     <Navigation />
   </div>
 );

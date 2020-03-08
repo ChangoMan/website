@@ -73,5 +73,11 @@ module.exports = {
     `gatsby-plugin-remove-trailing-slashes`,
     'gatsby-plugin-typescript',
     'gatsby-plugin-tslint'
+    // {
+    //   resolve: `gatsby-plugin-typography`,
+    //   options: {
+    //     pathToConfigModule: `src/utils/typography.ts`
+    //   }
+    // }
   ]
 };

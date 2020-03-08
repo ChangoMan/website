@@ -32,7 +32,7 @@ module.exports = {
     fontSize: {
       xs: '.75rem',
       sm: '.875rem',
-      base: '1rem',
+      base: '16px',
       lg: '1.125rem',
       xl: '1.25rem',
       '2xl': '1.5rem',
@@ -44,13 +44,5 @@ module.exports = {
     }
   },
   variants: {},
-  plugins: [
-    plugin(function({ addBase, config }) {
-      addBase({
-        h1: { fontSize: config('theme.fontSize.2xl') },
-        h2: { fontSize: config('theme.fontSize.xl') },
-        h3: { fontSize: config('theme.fontSize.lg') }
-      });
-    })
-  ]
+  plugins: []
 };

@@ -41,19 +41,19 @@ const Layout = ({ children, fullscreenWidth }: Props) => {
           </strong>
           <span className="flex">
             <a
-              className="ml-6 transition-opacity duration-200 opacity-25 hover:opacity-100"
+              className="ml-6 transition-opacity duration-200 opacity-25 hover:opacity-100 text-black"
               href="#"
             >
               <FaLinkedin />
             </a>
             <a
-              className="ml-3 transition-opacity duration-200 opacity-25 hover:opacity-100"
+              className="ml-3 transition-opacity duration-200 opacity-25 hover:opacity-100 text-black"
               href="#"
             >
               <FaTwitter />
             </a>
             <a
-              className="ml-3 transition-opacity duration-200 opacity-25 hover:opacity-100"
+              className="ml-3 transition-opacity duration-200 opacity-25 hover:opacity-100 text-black"
               href="#"
             >
               <FaInstagram />

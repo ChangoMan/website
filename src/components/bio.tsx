@@ -12,9 +12,9 @@ import React from 'react';
 const Bio = () => {
   const data = useStaticQuery(graphql`
     query BioQuery {
-      avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+      avatar: file(absolutePath: { regex: "/about-profile-photo.jpg/" }) {
         childImageSharp {
-          fixed(width: 50, height: 50) {
+          fixed(width: 50, height: 50, cropFocus: CENTER) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -32,21 +32,17 @@ const Bio = () => {
 
   const { author, social } = data.site.siteMetadata;
   return (
-    <div className="flex mb-10">
-      <Image
-        fixed={data.avatar.childImageSharp.fixed}
-        alt={author}
-        className="mr-2 mb-0 rounded w-16"
-        imgStyle={{
-          borderRadius: '50%'
-        }}
-      />
-      <p>
-        Written by <strong>{author}</strong> who lives and works in San
-        Francisco building useful things.{' '}
-        <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow him on Twitter
-        </a>
+    <div className="flex mb-10 px-6">
+      <div>
+        <Image
+          fixed={data.avatar.childImageSharp.fixed}
+          alt={author}
+          className="border-solid border-b border-black"
+        />
+      </div>
+      <p className="ml-6">
+        Written by <strong>{author}</strong>, a frontend engineer building
+        useful, beautiful interfaces in Colorado.
       </p>
     </div>
   );

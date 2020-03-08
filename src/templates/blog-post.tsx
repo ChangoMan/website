@@ -46,28 +46,39 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <h1 className="mt-1 mb-0">{post.frontmatter.title}</h1>
-      <p className="block mb-4 block text-xs">{post.frontmatter.date}</p>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      <hr className="mb-8" />
-      <Bio />
+      <div className="max-w-2xl mx-auto">
+        <div className="text-center mb-8">
+          <h2 className="font-black font-display text-xl inline-block border-solid border-b-4 border-gray-400 mb-5">
+            <Link className="no-underline text-black" to="/blog">
+              BLOG
+            </Link>
+          </h2>
+        </div>
+        <h1 className="leading-none mb-0">{post.frontmatter.title}</h1>
+        <small className="opacity-50">
+          <em>{post.frontmatter.date}</em>
+        </small>
+        <div className="mt-6" dangerouslySetInnerHTML={{ __html: post.html }} />
+        <hr className="mt-8 mb-10 max-w-none" />
+        <Bio />
 
-      <ul className="flex flex-wrap justify-between p-0 list-none">
-        <li>
-          {previous && (
-            <Link to={previous.fields.slug} rel="prev">
-              ← {previous.frontmatter.title}
-            </Link>
-          )}
-        </li>
-        <li>
-          {next && (
-            <Link to={next.fields.slug} rel="next">
-              {next.frontmatter.title} →
-            </Link>
-          )}
-        </li>
-      </ul>
+        <ul className="flex flex-wrap justify-between p-0 list-none">
+          <li>
+            {previous && (
+              <Link to={previous.fields.slug} rel="prev">
+                ← {previous.frontmatter.title}
+              </Link>
+            )}
+          </li>
+          <li>
+            {next && (
+              <Link to={next.fields.slug} rel="next">
+                {next.frontmatter.title} →
+              </Link>
+            )}
+          </li>
+        </ul>
+      </div>
     </Layout>
   );
 };

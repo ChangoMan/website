@@ -14,7 +14,7 @@ const AboutIndex = () => (
 
       <div
         className="float-right mb-5 px-8 ml-5 overflow-hidden relative"
-        style={{ maxWidth: '50%', boxShadow: '0 -1px 0 rgba(0,0,0,0.3) inset' }}
+        style={{ maxWidth: '50%', boxShadow: '0 -1px 0 rgba(0,0,0,0.5) inset' }}
       >
         <img
           className="relative"
@@ -25,18 +25,14 @@ const AboutIndex = () => (
       <p className="text-3xl font-display tracking-tight">
         Hey there, I'm Anson.
       </p>
-      <p className="text-xl mb-5">Developer by trade, designer by passion.</p>
+      <p className="text-xl mb-5">Frontend Developer. Leader. Designer.</p>
       <p className="mb-4">
-        Quisque a leo ipsum. Donec elit lorem, mattis id congue vitae, bibendum
-        id eros. Duis volutpat rutrum lectus id luctus. In hac habitasse platea
-        dictumst. Aenean interdum massa varius dui tempus, sed ornare velit
-        porta. Vivamus et finibus mauris. Nam porta augue a ipsum imperdiet
-        fringilla. Aenean sit amet sodales augue. Phasellus sit amet ipsum
-        convallis, finibus turpis a, mollis leo. Quisque nec massa velit.
-        Vestibulum fermentum metus scelerisque nisl egestas convallis. Nulla
-        facilisi. Class aptent taciti sociosqu ad litora torquent per conubia
-        nostra, per inceptos himenaeos. Pellentesque elit orci, elementum ut
-        ullamcorper sed, accumsan quis tellus.
+        Avid coder focused on creating elegant solutions for difficult technical
+        problems. Consistently deliver high-quality implementations that are
+        easy to use. Passionate about maximizing performance, hardened security,
+        and using the newest technologies available. Exceeds requirements on
+        time and on schedule while effectively working within a team.
+        Hard-working, curious, and fast learning.
       </p>
       <p>
         Connect with me on: <a href="#">LinkedIn</a>, <a href="#">Twitter</a>,
