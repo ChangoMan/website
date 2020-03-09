@@ -46,23 +46,28 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <div className="max-w-2xl mx-auto">
-        <div className="text-center mb-8">
-          <h2 className="font-black font-display text-xl inline-block border-solid border-b-4 border-gray-400 mb-5">
-            <Link className="no-underline text-black" to="/blog">
-              BLOG
-            </Link>
+      <div className="text-center mb-8">
+        <Link className="no-underline" to="/blog">
+          <h2 className="font-black font-display text-xl inline-block border-solid border-b-4 text-black border-gray-400 mb-5 hover:border-black">
+            BLOG
           </h2>
+        </Link>
+      </div>
+      <div className="max-w-3xl mx-auto">
+        <div className="px-16 pb-8 shadow-lg">
+          <h1 className="leading-none mb-0">{post.frontmatter.title}</h1>
+          <small className="opacity-50">
+            <em>{post.frontmatter.date}</em>
+          </small>
+          <div
+            className="mt-6"
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
+          <hr className="mt-8 mb-8 max-w-none" />
+          <Bio />
         </div>
-        <h1 className="leading-none mb-0">{post.frontmatter.title}</h1>
-        <small className="opacity-50">
-          <em>{post.frontmatter.date}</em>
-        </small>
-        <div className="mt-6" dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr className="mt-8 mb-10 max-w-none" />
-        <Bio />
 
-        <ul className="flex flex-wrap justify-between p-0 list-none">
+        <ul className="mt-8 flex flex-wrap justify-between p-0 list-none">
           <li>
             {previous && (
               <Link to={previous.fields.slug} rel="prev">

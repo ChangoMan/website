@@ -22,10 +22,12 @@ const AboutIndex = () => (
           src="about-profile-photo.jpg"
         />
       </div>
-      <p className="text-3xl font-display tracking-tight">
+      <p className="text-3xl font-display tracking-tight mb-0">
         Hey there, I'm Anson.
       </p>
-      <p className="text-xl mb-5">Frontend Developer. Leader. Designer.</p>
+      <p className="text-xl mb-5">
+        Frontend Developer. Designer. Leader. Learner. Adventurer.
+      </p>
       <p className="mb-4">
         Avid coder focused on creating elegant solutions for difficult technical
         problems. Consistently deliver high-quality implementations that are
