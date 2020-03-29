@@ -117,18 +117,13 @@
         "hidden": false
       },
       {
-        "type": "feat",
-        "section": "Features",
-        "hidden": false
-      },
-      {
         "type": "fix",
         "section": "Bug Fixes",
         "hidden": false
       },
       {
-        "type": "improvement",
-        "section": "Feature Improvements",
+        "type": "feat",
+        "section": "Features",
         "hidden": false
       },
       {
