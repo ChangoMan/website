@@ -13,7 +13,7 @@ const AboutIndex = () => (
       </div>
 
       <div
-        className="float-right mb-5 px-8 ml-5 overflow-hidden relative"
+        className="sm:float-right mb-5 px-8 mx-auto sm:ml-5 overflow-hidden relative"
         style={{ maxWidth: '50%', boxShadow: '0 -1px 0 rgba(0,0,0,0.5) inset' }}
       >
         <img
@@ -25,16 +25,19 @@ const AboutIndex = () => (
       <p className="text-3xl font-display tracking-tight mb-0">
         Hey there, I'm Anson.
       </p>
-      <p className="text-xl mb-5">
-        Frontend Developer. Designer. Leader. Learner. Adventurer.
-      </p>
+      <p className="text-xl mb-5">Frontend Engineer. Designer.</p>
       <p className="mb-4">
-        Avid coder focused on creating elegant solutions for difficult technical
-        problems. Consistently deliver high-quality implementations that are
-        easy to use. Passionate about maximizing performance, hardened security,
-        and using the newest technologies available. Exceeds requirements on
-        time and on schedule while effectively working within a team.
-        Hard-working, curious, and fast learning.
+        I make beautiful, enjoyable online experiences. Previous back-end
+        experience informs design and architectural decisions I make every day,
+        helping drive reusable, fast user interfaces. I currently specialize in
+        front-end engineering, using technologies like React.js, Next.js, and
+        Gatsby.js to build powerful applications used by thousands.
+      </p>
+      <p>
+        Some of my greatest joy comes from building excellent UIs that deftly
+        balance positive emotional experiences and stakeholder-optimized
+        usability. A design might be pretty, but that point is moot if no one
+        understands how to use it.
       </p>
       <p>
         Connect with me on: <a href="#">LinkedIn</a>, <a href="#">Twitter</a>,

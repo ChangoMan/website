@@ -54,7 +54,7 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
         </Link>
       </div>
       <div className="max-w-3xl mx-auto">
-        <div className="px-16 pb-8 shadow-lg">
+        <div className="px-16 pb-8 pt-2 shadow-lg">
           <h1 className="leading-none mb-0">{post.frontmatter.title}</h1>
           <small className="opacity-50">
             <em>{post.frontmatter.date}</em>

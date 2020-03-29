@@ -56,13 +56,13 @@ const SiteIndex = () => (
           <Ticker
             textItems={[
               'ReactJS',
-              'Accessibility',
+              'NextJS',
               'Javascript',
-              'Graphic Design',
-              'TypeScript',
+              'ES6',
               'GatsbyJS',
-              'Object Oriented Programming',
-              'Functional Programming'
+              'NodeJS',
+              'Functional Programming',
+              'Graphic Design'
             ]}
           />
         </div>
