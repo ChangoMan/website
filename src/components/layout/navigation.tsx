@@ -24,17 +24,17 @@ const socialLinks = [
   {
     title: 'Instagram',
     icon: <FaInstagram />,
-    path: '/1test'
+    path: 'https://www.instagram.com/ansonlichtfuss/'
   },
   {
     title: 'Twitter',
     icon: <FaTwitter />,
-    path: '/t2est'
+    path: 'https://twitter.com/ansonlichtfuss'
   },
   {
     title: 'LinkedIn',
     icon: <FaLinkedin />,
-    path: '/t4est'
+    path: 'https://www.linkedin.com/in/anson-lichtfuss-3401b6128'
   }
 ];
 
@@ -129,6 +129,7 @@ const Navigation = () => {
                 >
                   <a
                     href={link.path}
+                    target="_blank"
                     className="inline-block link font-light text-white uppercase tracking-widest text-3xl no-underline"
                   >
                     {link.icon}

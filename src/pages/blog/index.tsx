@@ -1,5 +1,4 @@
-import { graphql, Link } from 'gatsby';
-import Image from 'gatsby-image';
+import { graphql } from 'gatsby';
 import React from 'react';
 import Layout from '../../components/layout/layout';
 import SEO from '../../components/seo';
@@ -24,7 +23,8 @@ const BlogIndex = ({ data, location }: Props) => {
             BLOG
           </h2>
         </div>
-        {posts.map(({ node }) => {
+        <p className="text-center">Nothing to see here... yet. 👀</p>
+        {/* {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug;
           return (
             <div className="mb-16 mt-16 relative" key={node.fields.slug}>
@@ -76,7 +76,7 @@ const BlogIndex = ({ data, location }: Props) => {
               </div>
             </div>
           );
-        })}
+        })} */}
       </div>
     </Layout>
   );

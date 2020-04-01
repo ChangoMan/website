@@ -42,19 +42,22 @@ const Layout = ({ children, fullscreenWidth }: Props) => {
           <span className="flex">
             <a
               className="ml-6 transition-opacity duration-200 opacity-25 hover:opacity-100 text-black"
-              href="#"
+              href="https://www.linkedin.com/in/anson-lichtfuss-3401b6128"
+              target="_blank"
             >
               <FaLinkedin />
             </a>
             <a
               className="ml-3 transition-opacity duration-200 opacity-25 hover:opacity-100 text-black"
-              href="#"
+              href="https://twitter.com/ansonlichtfuss"
+              target="_blank"
             >
               <FaTwitter />
             </a>
             <a
               className="ml-3 transition-opacity duration-200 opacity-25 hover:opacity-100 text-black"
-              href="#"
+              href="https://www.instagram.com/ansonlichtfuss/"
+              target="_blank"
             >
               <FaInstagram />
             </a>

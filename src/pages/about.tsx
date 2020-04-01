@@ -25,7 +25,7 @@ const AboutIndex = () => (
       <p className="text-3xl font-display tracking-tight mb-0">
         Hey there, I'm Anson.
       </p>
-      <p className="text-xl mb-5">Frontend Engineer. Designer.</p>
+      <p className="text-xl mb-5">Front End Engineer. Designer.</p>
       <p className="mb-4">
         I make beautiful, enjoyable online experiences. Previous back-end
         experience informs design and architectural decisions I make every day,
@@ -40,8 +40,22 @@ const AboutIndex = () => (
         understands how to use it.
       </p>
       <p>
-        Connect with me on: <a href="#">LinkedIn</a>, <a href="#">Twitter</a>,
-        and <a href="#">Instagram</a>.
+        Connect with me on:{' '}
+        <a
+          href="https://www.linkedin.com/in/anson-lichtfuss-3401b6128"
+          target="_blank"
+        >
+          LinkedIn
+        </a>
+        ,{' '}
+        <a href="https://twitter.com/ansonlichtfuss" target="_blank">
+          Twitter
+        </a>
+        , and{' '}
+        <a href="https://www.instagram.com/ansonlichtfuss/" target="_blank">
+          Instagram
+        </a>
+        .
       </p>
     </div>
   </Layout>

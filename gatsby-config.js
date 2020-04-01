@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'Anson Lichtfuss',
     author: 'Anson Lichtfuss',
-    description: 'A starter blog demonstrating what Gatsby can do.',
+    description: 'My personal website and playground.',
     siteUrl: 'https://lichtf.us/',
     social: {
       twitter: 'ansonlichtfuss'
@@ -59,16 +59,16 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Gatsby Starter Blog',
-        short_name: 'GatsbyJS',
+        name: 'Anson Lichtfuss',
+        short_name: 'ansonlichtfuss',
         start_url: '/',
         background_color: '#ffffff',
-        theme_color: '#663399',
+        theme_color: '#888888',
         display: 'minimal-ui',
-        icon: 'content/assets/gatsby-icon.png'
+        icon: 'content/assets/site-icon.png'
       }
     },
-    'gatsby-plugin-offline',
+    // 'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-remove-trailing-slashes`,
     'gatsby-plugin-typescript',
