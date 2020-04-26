@@ -9,7 +9,7 @@ const contentWidth = 'mx-auto max-w-5xl';
 
 const SiteIndex = () => (
   <Layout>
-    <SEO title="Homepage" />
+    <SEO title="Home" />
     <div className="relative lg:static">
       <div
         className="absolute opacity-75 h-full min-h-screen top-0 left-0 w-full"
