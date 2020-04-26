@@ -14,11 +14,7 @@ const Layout = ({ children, fullscreenWidth }: Props) => {
   const header = <Header />;
 
   return (
-    <div
-      className={`overflow-x-hidden ${
-        navOpen ? 'h-screen overflow-y-hidden' : ''
-      }`}
-    >
+    <div className={`${navOpen ? 'h-screen overflow-y-hidden' : ''}`}>
       <div
         className={`${
           fullscreenWidth ? '' : 'mx-auto max-w-5xl px-5'

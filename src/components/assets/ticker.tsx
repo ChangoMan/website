@@ -7,7 +7,7 @@ interface Props {
 
 const Ticker = ({
   textItems = ['default', 'value'],
-  repeatLength = 5
+  repeatLength = 5,
 }: Props) => {
   const [initialString, printedValue] = useMemo(() => {
     let thisInitialString = '';
@@ -27,7 +27,7 @@ const Ticker = ({
   }, [repeatLength, textItems]);
 
   return (
-    <div className="font-display uppercase w-screen whitespace-normal lg:whitespace-no-wrap text-xl max-w-md lg:max-w-none text-center mt-8 lg:mt-0 px-2 lg:px-0">
+    <div className="font-display uppercase w-screen whitespace-normal lg:whitespace-no-wrap text-xl max-w-md lg:max-w-none text-center mt-8 lg:mt-0 px-2 lg:px-0  overflow-x-hidden">
       <span className="inline lg:hidden">{initialString}</span>
       <span className="hidden lg:inline">{printedValue.join('')}</span>
     </div>

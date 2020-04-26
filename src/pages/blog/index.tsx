@@ -1,4 +1,5 @@
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
+import Image from 'gatsby-image';
 import React from 'react';
 import Layout from '../../components/layout/layout';
 import SEO from '../../components/seo';
@@ -23,8 +24,7 @@ const BlogIndex = ({ data, location }: Props) => {
             BLOG
           </h2>
         </div>
-        <p className="text-center">Nothing to see here... yet. 👀</p>
-        {/* {posts.map(({ node }) => {
+        {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug;
           return (
             <div className="mb-16 mt-16 relative" key={node.fields.slug}>
@@ -54,7 +54,7 @@ const BlogIndex = ({ data, location }: Props) => {
                 <p
                   className="mt-0"
                   dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt
+                    __html: node.frontmatter.description || node.excerpt,
                   }}
                 />
               </div>
@@ -76,7 +76,7 @@ const BlogIndex = ({ data, location }: Props) => {
               </div>
             </div>
           );
-        })} */}
+        })}
       </div>
     </Layout>
   );
@@ -102,16 +102,17 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
-            featuredImage {
-              childImageSharp {
-                fixed(width: 240, height: 160, cropFocus: CENTER) {
-                  ...GatsbyImageSharpFixed
-                }
-              }
-            }
           }
         }
       }
     }
   }
 `;
+
+// featuredImage {
+//   childImageSharp {
+//     fixed(width: 240, height: 160, cropFocus: CENTER) {
+//       ...GatsbyImageSharpFixed
+//     }
+//   }
+// }
