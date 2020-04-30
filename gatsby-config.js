@@ -5,8 +5,8 @@ module.exports = {
     description: 'designer + developer',
     siteUrl: 'https://lichtf.us/',
     social: {
-      twitter: 'ansonlichtfuss'
-    }
+      twitter: 'ansonlichtfuss',
+    },
   },
   plugins: [
     'gatsby-plugin-postcss',
@@ -15,15 +15,15 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/content/blog`,
-        name: 'blog'
-      }
+        name: 'blog',
+      },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/content/assets`,
-        name: 'assets'
-      }
+        name: 'assets',
+      },
     },
     {
       resolve: 'gatsby-transformer-remark',
@@ -32,20 +32,20 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 590
-            }
+              maxWidth: 590,
+            },
           },
           {
             resolve: 'gatsby-remark-responsive-iframe',
             options: {
-              wrapperStyle: 'margin-bottom: 1.0725rem'
-            }
+              wrapperStyle: 'margin-bottom: 1.0725rem',
+            },
           },
           'gatsby-remark-prismjs',
           'gatsby-remark-copy-linked-files',
-          'gatsby-remark-smartypants'
-        ]
-      }
+          'gatsby-remark-smartypants',
+        ],
+      },
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
@@ -59,13 +59,24 @@ module.exports = {
         background_color: '#ffffff',
         theme_color: '#888888',
         display: 'minimal-ui',
-        icon: 'content/assets/site-icon.png'
-      }
+        icon: 'content/assets/site-icon.png',
+      },
     },
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-remove-trailing-slashes`,
     'gatsby-plugin-typescript',
     'gatsby-plugin-tslint',
-    'gatsby-plugin-offline'
-  ]
+    {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        printRejected: false, // Print removed selectors and processed file names
+        develop: true, // Enable while using `gatsby develop`
+        tailwind: true, // Enable tailwindcss support
+        // whitelist: ['whitelist'], // Don't remove this selector
+        ignore: ['/ignored.css', 'prismjs/', 'docsearch.js/'], // Ignore files/folders
+        // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
+      },
+    },
+    `gatsby-plugin-remove-serviceworker`,
+  ],
 };
