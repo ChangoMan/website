@@ -9,6 +9,7 @@ module.exports = {
     },
   },
   plugins: [
+    'gatsby-plugin-preact',
     'gatsby-plugin-postcss',
     'gatsby-plugin-styled-jsx',
     {
@@ -78,5 +79,13 @@ module.exports = {
       },
     },
     `gatsby-plugin-remove-serviceworker`,
+    // {
+    //   resolve: 'gatsby-plugin-webpack-bundle-analyzer',
+    //   options: {
+    //     disable: false,
+    //     analyzerPort: 3000,
+    //     production: false,
+    //   },
+    // },
   ],
 };
