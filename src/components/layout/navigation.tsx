@@ -8,34 +8,34 @@ import Logo from '../assets/logo';
 const navLinks = [
   {
     title: 'Home',
-    path: '/'
+    path: '/',
   },
   {
     title: 'About',
-    path: '/about'
+    path: '/about',
   },
   {
     title: 'Blog',
-    path: '/blog'
-  }
+    path: '/blog',
+  },
 ];
 
 const socialLinks = [
   {
     title: 'Instagram',
     icon: <FaInstagram />,
-    path: 'https://www.instagram.com/ansonlichtfuss/'
+    path: 'https://www.instagram.com/ansonlichtfuss/',
   },
   {
     title: 'Twitter',
     icon: <FaTwitter />,
-    path: 'https://twitter.com/ansonlichtfuss'
+    path: 'https://twitter.com/ansonlichtfuss',
   },
   {
     title: 'LinkedIn',
     icon: <FaLinkedin />,
-    path: 'https://www.linkedin.com/in/anson-lichtfuss-3401b6128'
-  }
+    path: 'https://www.linkedin.com/in/anson-lichtfuss-3401b6128',
+  },
 ];
 
 const container = {
@@ -44,19 +44,19 @@ const container = {
     opacity: 1,
     transition: {
       delayChildren: 0.1,
-      staggerChildren: 0.1
-    }
-  }
+      staggerChildren: 0.1,
+    },
+  },
 };
 
 const verticalItem = {
   hidden: { y: -20, opacity: 0 },
-  show: { y: 0, opacity: 1, transition: { easeOut: 'linear', duration: 0.5 } }
+  show: { y: 0, opacity: 1, transition: { easeOut: 'linear', duration: 0.5 } },
 };
 
 const horizontalItem = {
   hidden: { x: 20, opacity: 0 },
-  show: { x: 0, opacity: 1, transition: { easeOut: 'linear', duration: 0.5 } }
+  show: { x: 0, opacity: 1, transition: { easeOut: 'linear', duration: 0.5 } },
 };
 
 const Navigation = () => {
@@ -97,12 +97,12 @@ const Navigation = () => {
             </motion.div>
             <motion.div
               key="nav-links"
-              className="nav-links flex flex-col items-end color-white max-w-5xl mt-16 mx-auto py-10 px-5"
+              className="nav-links flex flex-col items-end color-white max-w-5xl mt-16 mx-auto py-10 px-5 overflow-x-hidden"
               variants={container}
               initial={animateNav ? 'hidden' : false}
               animate="show"
             >
-              {navLinks.map(link => (
+              {navLinks.map((link) => (
                 <motion.div key={link.path} variants={verticalItem}>
                   <Link
                     to={link.path}
@@ -121,7 +121,7 @@ const Navigation = () => {
               initial={animateNav ? 'hidden' : false}
               animate="show"
             >
-              {socialLinks.map(link => (
+              {socialLinks.map((link) => (
                 <motion.div
                   className="pl-8"
                   key={link.path}
@@ -150,12 +150,12 @@ const Navigation = () => {
           initial={{
             backgroundColor: navOpen ? '#fff' : '#000',
             y: navOpen ? 10 : 0,
-            rotate: navOpen ? '45deg' : 0
+            rotate: navOpen ? '45deg' : 0,
           }}
           animate={{
             backgroundColor: navOpen ? '#fff' : '#000',
             y: navOpen ? 10 : 0,
-            rotate: navOpen ? '45deg' : 0
+            rotate: navOpen ? '45deg' : 0,
           }}
           transition={{ ease: 'linear', duration: animateNav ? 0.3 : 0 }}
         />
@@ -170,12 +170,12 @@ const Navigation = () => {
           initial={{
             backgroundColor: navOpen ? '#fff' : '#000',
             y: navOpen ? -10 : 0,
-            rotate: navOpen ? '-45deg' : 0
+            rotate: navOpen ? '-45deg' : 0,
           }}
           animate={{
             backgroundColor: navOpen ? '#fff' : '#000',
             y: navOpen ? -10 : 0,
-            rotate: navOpen ? '-45deg' : 0
+            rotate: navOpen ? '-45deg' : 0,
           }}
           transition={{ ease: 'linear', duration: animateNav ? 0.3 : 0 }}
         />
