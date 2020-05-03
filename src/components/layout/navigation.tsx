@@ -75,7 +75,7 @@ const Navigation = () => {
         {navOpen && (
           <motion.div
             key="nav-overlay"
-            className="nav-overlay absolute top-0 left-0 w-screen h-screen bg-black z-10  overflow-y-auto"
+            className="nav-overlay absolute top-0 left-0 w-screen h-screen bg-black z-10 overflow-x-hidden overflow-y-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
