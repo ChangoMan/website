@@ -20,7 +20,7 @@ const SiteIndex = ({ data }: Props) => {
   return (
     <Layout>
       <SEO title="Home" />
-      <div className="relative h-full min-h-screen lg:-mt-20 mb-12">
+      <div className="relative h-full min-h-screen lg:-mt-20 mb-12 z-0">
         <div
           className="absolute opacity-75 h-full min-h-screen left-0 w-full"
           style={{ zIndex: -1 }}
