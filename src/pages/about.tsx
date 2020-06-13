@@ -6,12 +6,6 @@ const AboutIndex = () => (
   <Layout>
     <SEO title="About" />
     <div className="max-w-2xl my-0 mx-auto">
-      <div className="text-center mb-8">
-        <h2 className="font-black font-display text-xl inline-block border-solid border-b-4 border-gray-400 mb-5">
-          ABOUT
-        </h2>
-      </div>
-
       <div
         className="sm:float-right mb-5 px-8 mx-auto sm:ml-5 overflow-hidden relative"
         style={{ maxWidth: '50%', boxShadow: '0 -1px 0 rgba(0,0,0,0.5) inset' }}

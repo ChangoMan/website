@@ -19,11 +19,6 @@ const BlogIndex = ({ data, location }: Props) => {
     <Layout>
       <SEO title="Blog" />
       <div className="max-w-2xl my-0 mx-auto">
-        <div className="text-center mb-8">
-          <h2 className="font-black font-display text-xl inline-block border-solid border-b-4 border-gray-400 mb-5">
-            BLOG
-          </h2>
-        </div>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug;
           return (

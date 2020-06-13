@@ -46,15 +46,8 @@ const BlogPostTemplate = ({ data, pageContext }: Props) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <div className="text-center mb-8">
-        <Link className="no-underline" to="/blog">
-          <h2 className="font-black font-display text-xl inline-block border-solid border-b-4 text-black border-gray-400 mb-5 hover:border-black">
-            BLOG
-          </h2>
-        </Link>
-      </div>
       <div className="max-w-3xl mx-auto">
-        <div className="px-2 sm:px-8 md:px-16 pb-8 pt-2 shadow-none md:shadow-lg">
+        <div className="px-2 sm:px-8 md:px-16 pb-8 pt-2 mt-8 shadow-none md:shadow-lg">
           <h1 className="leading-none mb-0">{post.frontmatter.title}</h1>
           <small className="opacity-50">
             <em>{post.frontmatter.date}</em>
