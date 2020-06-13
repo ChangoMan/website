@@ -12,14 +12,13 @@ const AboutIndex = () => (
       >
         <img
           className="relative"
-          style={{ zIndex: -1, imageRendering: 'crisp-edges' }}
+          style={{ zIndex: -1 }}
           src="about-profile-photo.jpg"
         />
       </div>
       <p className="text-3xl font-display tracking-tight mb-0">
         Hey there, I'm Anson.
       </p>
-      <p className="text-xl mb-5">Frontend Engineer.</p>
       <p className="mb-4">
         I make beautiful, enjoyable online experiences. Previous back-end
         experience informs design and architectural decisions I make every day,
