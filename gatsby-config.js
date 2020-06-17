@@ -19,7 +19,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-postcss',
-    'gatsby-plugin-styled-jsx',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -74,6 +73,7 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-remove-trailing-slashes`,
     'gatsby-plugin-typescript',
+    'gatsby-plugin-linaria',
     'gatsby-plugin-tslint',
     {
       resolve: `gatsby-plugin-purgecss`,
@@ -82,6 +82,7 @@ module.exports = {
         develop: false, // Enable while using `gatsby develop`
         tailwind: true, // Enable tailwindcss support
         // whitelist: ['whitelist'], // Don't remove this selector
+        whitelistPatterns: [/xlin-.*/],
         ignore: ['/ignored.css', 'prismjs/', 'docsearch.js/'], // Ignore files/folders
         // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
       },
