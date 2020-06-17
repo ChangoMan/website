@@ -1,3 +1,4 @@
+const isProduction = process.env.NODE_ENV === 'production';
 module.exports = {
   siteMetadata: {
     title: 'Anson Lichtfuss',
@@ -10,6 +11,13 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-preact',
+    {
+      resolve: `gatsby-plugin-goatcounter`,
+      options: {
+        code: isProduction ? '5ms89eqxkk7k' : 'bd9su8kqpu2abvz',
+        allowLocal: !isProduction,
+      },
+    },
     'gatsby-plugin-postcss',
     'gatsby-plugin-styled-jsx',
     {
@@ -71,7 +79,7 @@ module.exports = {
       resolve: `gatsby-plugin-purgecss`,
       options: {
         printRejected: false, // Print removed selectors and processed file names
-        develop: true, // Enable while using `gatsby develop`
+        develop: false, // Enable while using `gatsby develop`
         tailwind: true, // Enable tailwindcss support
         // whitelist: ['whitelist'], // Don't remove this selector
         ignore: ['/ignored.css', 'prismjs/', 'docsearch.js/'], // Ignore files/folders
