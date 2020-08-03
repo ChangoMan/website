@@ -2,14 +2,15 @@ import React, { useContext } from 'react';
 import { FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import GlobalContext from '../../context/GlobalContext';
 import '../../css/global.css';
+import Breadcrumbs, { Props as BreadcrumbsProps } from './breadcrumbs';
 import Header from './header';
 
-interface Props {
+interface Props extends BreadcrumbsProps {
   children: object;
   fullscreenWidth?: boolean;
 }
 
-const Layout = ({ children, fullscreenWidth }: Props) => {
+const Layout = ({ children, fullscreenWidth, crumbs }: Props) => {
   const { navOpen } = useContext(GlobalContext.State);
   const header = <Header />;
 
@@ -22,6 +23,7 @@ const Layout = ({ children, fullscreenWidth }: Props) => {
       >
         <header className={fullscreenWidth ? 'mx-auto max-w-5xl' : ''}>
           {header}
+          {crumbs && <Breadcrumbs crumbs={crumbs} />}
         </header>
         <main>{children}</main>
         <footer
