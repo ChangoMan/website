@@ -1,7 +1,7 @@
 import { linearGradientDef } from '@nivo/core';
 import { ResponsiveLine } from '@nivo/line';
 import { ResponsivePie } from '@nivo/pie';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { FaExpandAlt } from 'react-icons/fa';
 
@@ -15,66 +15,69 @@ const ChartCard = ({
   primaryMetricPrintout,
   data,
   colorScheme,
+  onClick,
+  selected,
+  shrink,
 }: Props) => {
   const crumbList = false;
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <div>
-      <div
-        className={`${
-          modalOpen &&
-          'z-50 fixed top-0 left-0 w-screen h-screen flex justify-center items-center'
-        }`}
-      >
-        {modalOpen && (
-          <motion.div
-            className="fixed z-50 top-0 left-0 w-screen h-screen"
-            style={{ backgroundColor: 'rgba(0,0,0,0.5)', opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          />
-        )}
-        <motion.div
-          className={`rounded overflow-hidden shadow-xl border-solid border border-gray-200 bg-white ${
-            modalOpen ? 'z-50 fixed' : 'relative'
-          }`}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <div
-            className="absolute bottom-0 opacity-50 z-0"
-            style={{ width: '100%', height: '75px' }}
-          >
-            <ResponsiveLine
-              data={data}
-              margin={{ top: 20, right: 0, bottom: 0, left: 0 }}
-              yScale={{
-                type: 'linear',
-                min: 0,
-                max: 'auto',
-              }}
-              curve="natural"
-              colors={colorScheme}
-              enableArea={true}
-              axisTop={null}
-              axisRight={null}
-              axisBottom={null}
-              axisLeft={null}
-              enableGridX={false}
-              enableGridY={false}
-              defs={[
-                linearGradientDef('gradientA', [
-                  { offset: 0, color: 'inherit' },
-                  { offset: 100, color: 'inherit', opacity: 0 },
-                ]),
-              ]}
-              fill={[{ match: '*', id: 'gradientA' }]}
-              enablePoints={false}
-              isInteractive={false}
-              enableCrosshair={false}
-            />
-          </div>
+    <motion.div
+      layout
+      className={`rounded overflow-hidden shadow-xl border-solid border border-gray-200 bg-white relative`}
+      initial={{ opacity: 0 }}
+      animate={{
+        ...(shrink
+          ? { width: 0, height: 0, opacity: 0 }
+          : { width: selected ? '500px' : 'auto', height: 'auto', opacity: 1 }),
+        opacity: 1,
+      }}
+      exit={{ opacity: 0 }}
+      // layoutId={`card-container-${title}`}
+      transition={{ duration: 0.3 }}
+      onClick={() => onClick(selected ? null : title)}
+    >
+      <AnimatePresence>
+        <div>
+          {!selected && (
+            <motion.div
+              className="absolute bottom-0 opacity-50 z-0"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              style={{ width: '100%', height: '75px' }}
+            >
+              <ResponsiveLine
+                data={data}
+                margin={{ top: 20, right: 0, bottom: 0, left: 0 }}
+                yScale={{
+                  type: 'linear',
+                  min: 0,
+                  max: 'auto',
+                }}
+                curve="natural"
+                colors={colorScheme}
+                enableArea={true}
+                axisTop={null}
+                axisRight={null}
+                axisBottom={null}
+                axisLeft={null}
+                enableGridX={false}
+                enableGridY={false}
+                defs={[
+                  linearGradientDef('gradientA', [
+                    { offset: 0, color: 'inherit' },
+                    { offset: 100, color: 'inherit', opacity: 0 },
+                  ]),
+                ]}
+                fill={[{ match: '*', id: 'gradientA' }]}
+                enablePoints={false}
+                isInteractive={false}
+                enableCrosshair={false}
+              />
+            </motion.div>
+          )}
           <div className="relative z-10">
             <div
               className="relative"
@@ -119,9 +122,9 @@ const ChartCard = ({
               </button>
             </div>
           </div>
-        </motion.div>
-      </div>
-    </div>
+        </div>
+      </AnimatePresence>
+    </motion.div>
   );
 };
 
