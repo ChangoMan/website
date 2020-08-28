@@ -9,6 +9,7 @@ import useSWR from 'swr';
 import Layout from '../../components/layout/layout';
 import SEO from '../../components/seo';
 import ChartCard from '../../components/simple-metrics/ChartCard';
+import ChartPopup from '../../components/simple-metrics/ChartPopup';
 import './test.css';
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
@@ -26,7 +27,8 @@ const crumbs = [
 ];
 
 const SimpleMetricsIndex = () => {
-  const [modalId, setModalId] = useState<string | null>(null);
+  // const [modalId, setModalId] = useState<string | null>(null);
+  const [modalId, setModalId] = useState<string | null>('CPU');
   const { data, error } = useSWR(
     '//localhost:3000/api/metrics/system',
     fetcher,
@@ -104,128 +106,104 @@ const SimpleMetricsIndex = () => {
           {!error && data && (
             <>
               <motion.div className={'grid grid-cols-2 gap-8'}>
-                {(!modalId || modalId === 'CPU') && (
-                  <ChartCard
-                    title="CPU"
-                    primaryMetric={
-                      data?.response.cpuTotal.data[
-                        data?.response.cpuTotal.data.length - 1
-                      ].y
-                    }
-                    primaryMetricPrintout={new Intl.NumberFormat('en-US', {
-                      style: 'percent',
-                    }).format(
-                      data?.response.cpuTotal.data[
-                        data?.response.cpuTotal.data.length - 1
-                      ].y / 100
-                    )}
-                    data={data?.response.cpuCores}
-                    colorScheme={{ scheme: 'dark2' }}
-                    onClick={setModalId}
-                    selected={modalId === 'CPU'}
-                    shrink={!!modalId && modalId !== 'CPU'}
-                  />
-                )}
-                {(!modalId || modalId === 'RAM') && (
-                  <ChartCard
-                    title="RAM"
-                    primaryMetric={
-                      (data?.response.memory.data[
-                        data?.response.memory.data.length - 1
-                      ].y /
-                        system.memory.total) *
-                      100
-                    }
-                    primaryMetricPrintout={new Intl.NumberFormat('en-US', {
-                      style: 'percent',
-                    }).format(
-                      data?.response.memory.data[
-                        data?.response.memory.data.length - 1
-                      ].y / system.memory.total
-                    )}
-                    data={[data?.response.memory]}
-                    colorScheme={['#006837']}
-                    onClick={setModalId}
-                    selected={modalId === 'RAM'}
-                    shrink={modalId && modalId !== 'RAM'}
-                  />
-                )}
-                {(!modalId || modalId === 'Disk') && (
-                  <ChartCard
-                    title="Disk"
-                    primaryMetric={
-                      data?.response.disk.data[
-                        data?.response.disk.data.length - 1
-                      ].y
-                    }
-                    primaryMetricPrintout={new Intl.NumberFormat('en-US', {
-                      style: 'percent',
-                    }).format(
-                      data?.response.disk.data[
-                        data?.response.disk.data.length - 1
-                      ].y / system.disk.total
-                    )}
-                    data={[data?.response.disk]}
-                    colorScheme={['#0868AC']}
-                    onClick={setModalId}
-                    selected={modalId === 'Disk'}
-                    shrink={modalId && modalId !== 'Disk'}
-                  />
-                )}
-                {(!modalId || modalId === 'Temp') && (
-                  <ChartCard
-                    title="Temp"
-                    primaryMetric={
-                      data?.response.temperature.data[
-                        data?.response.temperature.data.length - 1
-                      ].y
-                    }
-                    primaryMetricPrintout={`${
-                      data?.response.temperature.data[
-                        data?.response.temperature.data.length - 1
-                      ].y
-                    } C`}
-                    data={[data?.response.temperature]}
-                    colorScheme={['#54278F']}
-                    onClick={setModalId}
-                    selected={modalId === 'Temp'}
-                    shrink={modalId && modalId !== 'Temp'}
-                  />
+                {!modalId && (
+                  <>
+                    <ChartCard
+                      title="CPU"
+                      primaryMetric={
+                        data?.response.cpuTotal.data[
+                          data?.response.cpuTotal.data.length - 1
+                        ].y
+                      }
+                      primaryMetricPrintout={new Intl.NumberFormat('en-US', {
+                        style: 'percent',
+                      }).format(
+                        data?.response.cpuTotal.data[
+                          data?.response.cpuTotal.data.length - 1
+                        ].y / 100
+                      )}
+                      data={data?.response.cpuCores}
+                      colorScheme={{ scheme: 'dark2' }}
+                      onClick={setModalId}
+                    />
+                    <ChartCard
+                      title="RAM"
+                      primaryMetric={
+                        (data?.response.memory.data[
+                          data?.response.memory.data.length - 1
+                        ].y /
+                          system.memory.total) *
+                        100
+                      }
+                      primaryMetricPrintout={new Intl.NumberFormat('en-US', {
+                        style: 'percent',
+                      }).format(
+                        data?.response.memory.data[
+                          data?.response.memory.data.length - 1
+                        ].y / system.memory.total
+                      )}
+                      data={[data?.response.memory]}
+                      colorScheme={['#006837']}
+                      onClick={setModalId}
+                    />
+                    <ChartCard
+                      title="Disk"
+                      primaryMetric={
+                        data?.response.disk.data[
+                          data?.response.disk.data.length - 1
+                        ].y
+                      }
+                      primaryMetricPrintout={new Intl.NumberFormat('en-US', {
+                        style: 'percent',
+                      }).format(
+                        data?.response.disk.data[
+                          data?.response.disk.data.length - 1
+                        ].y / system.disk.total
+                      )}
+                      data={[data?.response.disk]}
+                      colorScheme={['#0868AC']}
+                      onClick={setModalId}
+                    />
+                    <ChartCard
+                      title="Temp"
+                      primaryMetric={
+                        data?.response.temperature.data[
+                          data?.response.temperature.data.length - 1
+                        ].y
+                      }
+                      primaryMetricPrintout={`${
+                        data?.response.temperature.data[
+                          data?.response.temperature.data.length - 1
+                        ].y
+                      } C`}
+                      data={[data?.response.temperature]}
+                      colorScheme={['#54278F']}
+                      onClick={setModalId}
+                    />
+                  </>
                 )}
               </motion.div>
 
+              {modalId && (
+                <ChartPopup
+                  id={modalId}
+                  onClose={() => setModalId(null)}
+                  items={data?.response}
+                  data={data?.response.cpuCores}
+                  colorScheme={{ scheme: 'dark2' }}
+                />
+              )}
+
               {!!lastReportTime && parseISO(lastReportTime) && (
-                <div className="text-sm text-center mt-8 text-gray-600">
+                <motion.div
+                  className="text-sm text-center mt-8 text-gray-600"
+                  layoutId={`report-time`}
+                >
                   Reported {formatDistanceToNow(parseISO(lastReportTime))} ago.
-                </div>
+                </motion.div>
               )}
             </>
           )}
-
-          {/* <AnimatePresence>
-            {modalId && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0, transition: { duration: 0.3 } }}
-                transition={{ duration: 0.3 }}
-                className="fixed z-50 top-0 left-0 w-screen h-screen"
-                style={{
-                  backgroundColor: 'rgba(255,255,255,0.8)',
-                  pointerEvents: 'auto',
-                }}
-                onClick={() => setModalId(null)}
-              ></motion.div>
-            )}
-          </AnimatePresence>
-
-          {modalId && (
-            <ChartPopup
-              id={modalId}
-              onClose={() => setModalId(null)}
-              items={data?.response}
-            />
-          )} */}
         </div>
       </AnimateSharedLayout>
     </Layout>
