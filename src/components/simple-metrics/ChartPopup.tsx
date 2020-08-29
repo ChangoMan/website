@@ -74,18 +74,16 @@ export default function ChartPopup({ items, id, onClose, data, colorScheme }) {
           />
         </div>
 
-        <div className="grid grid-cols-5 gap-5">
-          {Object.keys(daturd).map((rowDatumKey) => (
-            <>
-              <div>{format(parseISO(rowDatumKey), 'MMM d, YY')}</div>
-              {Object.keys(daturd[rowDatumKey]).map((colDatum) => (
-                <div>
-                  {parseFloat(daturd[rowDatumKey][colDatum]).toFixed(2)}
-                </div>
-              ))}
-            </>
-          ))}
-        </div>
+        {Object.keys(daturd).map((rowDatumKey) => (
+          <div className="grid grid-cols-5 gap-5" key={rowDatumKey}>
+            <div>{format(parseISO(rowDatumKey), 'MMM d, yy')}</div>
+            {Object.keys(daturd[rowDatumKey]).map((colDatum) => (
+              <div key={`${rowDatumKey}${daturd[rowDatumKey][colDatum]}`}>
+                {parseFloat(daturd[rowDatumKey][colDatum]).toFixed(2)}
+              </div>
+            ))}
+          </div>
+        ))}
       </motion.div>
     </motion.div>
   );
