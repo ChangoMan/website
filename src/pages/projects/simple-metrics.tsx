@@ -3,13 +3,12 @@ import isBefore from 'date-fns/isBefore';
 import parseISO from 'date-fns/parseISO';
 import subHours from 'date-fns/subHours';
 import { AnimateSharedLayout, motion } from 'framer-motion';
-import React, { useState } from 'react';
+import React from 'react';
 import { FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
 import useSWR from 'swr';
 import Layout from '../../components/layout/layout';
 import SEO from '../../components/seo';
 import ChartCard from '../../components/simple-metrics/ChartCard';
-import ChartPopup from '../../components/simple-metrics/ChartPopup';
 import './test.css';
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
@@ -27,15 +26,13 @@ const crumbs = [
 ];
 
 const SimpleMetricsIndex = () => {
-  // const [modalId, setModalId] = useState<string | null>(null);
-  const [modalId, setModalId] = useState<string | null>('CPU');
   const { data, error } = useSWR(
     '//localhost:3000/api/metrics/system',
     fetcher,
     swrOptions
   );
 
-  console.log({ data: data?.response.cpuCores });
+  console.log(data);
 
   const system = data?.response.system;
   const lastReportTime = system?.lastReportTime;
@@ -45,8 +42,6 @@ const SimpleMetricsIndex = () => {
       parseISO(lastReportTime),
       subHours(new Date(), acceptableHoursBetweenReports)
     ) || !!error;
-
-  mightBeDown = false;
 
   return (
     <Layout>
@@ -106,93 +101,79 @@ const SimpleMetricsIndex = () => {
           {!error && data && (
             <>
               <motion.div className={'grid grid-cols-2 gap-8'}>
-                {!modalId && (
-                  <>
-                    <ChartCard
-                      title="CPU"
-                      primaryMetric={
-                        data?.response.cpuTotal.data[
-                          data?.response.cpuTotal.data.length - 1
-                        ].y
-                      }
-                      primaryMetricPrintout={new Intl.NumberFormat('en-US', {
-                        style: 'percent',
-                      }).format(
-                        data?.response.cpuTotal.data[
-                          data?.response.cpuTotal.data.length - 1
-                        ].y / 100
-                      )}
-                      data={data?.response.cpuCores}
-                      colorScheme={{ scheme: 'dark2' }}
-                      onClick={setModalId}
-                    />
-                    <ChartCard
-                      title="RAM"
-                      primaryMetric={
-                        (data?.response.memory.data[
-                          data?.response.memory.data.length - 1
-                        ].y /
-                          system.memory.total) *
-                        100
-                      }
-                      primaryMetricPrintout={new Intl.NumberFormat('en-US', {
-                        style: 'percent',
-                      }).format(
-                        data?.response.memory.data[
-                          data?.response.memory.data.length - 1
-                        ].y / system.memory.total
-                      )}
-                      data={[data?.response.memory]}
-                      colorScheme={['#006837']}
-                      onClick={setModalId}
-                    />
-                    <ChartCard
-                      title="Disk"
-                      primaryMetric={
-                        data?.response.disk.data[
-                          data?.response.disk.data.length - 1
-                        ].y
-                      }
-                      primaryMetricPrintout={new Intl.NumberFormat('en-US', {
-                        style: 'percent',
-                      }).format(
-                        data?.response.disk.data[
-                          data?.response.disk.data.length - 1
-                        ].y / system.disk.total
-                      )}
-                      data={[data?.response.disk]}
-                      colorScheme={['#0868AC']}
-                      onClick={setModalId}
-                    />
-                    <ChartCard
-                      title="Temp"
-                      primaryMetric={
-                        data?.response.temperature.data[
-                          data?.response.temperature.data.length - 1
-                        ].y
-                      }
-                      primaryMetricPrintout={`${
-                        data?.response.temperature.data[
-                          data?.response.temperature.data.length - 1
-                        ].y
-                      } C`}
-                      data={[data?.response.temperature]}
-                      colorScheme={['#54278F']}
-                      onClick={setModalId}
-                    />
-                  </>
-                )}
-              </motion.div>
-
-              {modalId && (
-                <ChartPopup
-                  id={modalId}
-                  onClose={() => setModalId(null)}
-                  items={data?.response}
+                <ChartCard
+                  title="CPU"
+                  primaryMetric={
+                    data?.response.cpuTotal.data[
+                      data?.response.cpuTotal.data.length - 1
+                    ].y
+                  }
+                  primaryMetricPrintout={new Intl.NumberFormat('en-US', {
+                    style: 'percent',
+                  }).format(
+                    data?.response.cpuTotal.data[
+                      data?.response.cpuTotal.data.length - 1
+                    ].y / 100
+                  )}
                   data={data?.response.cpuCores}
                   colorScheme={{ scheme: 'dark2' }}
                 />
-              )}
+                <ChartCard
+                  title="RAM"
+                  primaryMetric={
+                    (data?.response.memory.data[
+                      data?.response.memory.data.length - 1
+                    ].y /
+                      system.memory.total) *
+                    100
+                  }
+                  primaryMetricPrintout={new Intl.NumberFormat('en-US', {
+                    style: 'percent',
+                  }).format(
+                    data?.response.memory.data[
+                      data?.response.memory.data.length - 1
+                    ].y / system.memory.total
+                  )}
+                  data={[data?.response.memory]}
+                  colorScheme={['#006837']}
+                />
+                <ChartCard
+                  title="Disk"
+                  primaryMetric={
+                    (data?.response.disk.data[
+                      data?.response.disk.data.length - 1
+                    ].y /
+                      system.disk.total) *
+                    100
+                  }
+                  primaryMetricPrintout={new Intl.NumberFormat('en-US', {
+                    style: 'percent',
+                  }).format(
+                    data?.response.disk.data[
+                      data?.response.disk.data.length - 1
+                    ].y / system.disk.total
+                  )}
+                  data={[data?.response.disk]}
+                  colorScheme={['#0868AC']}
+                />
+                <ChartCard
+                  title="Temp"
+                  primaryMetric={
+                    (data?.response.temperature.data[
+                      data?.response.temperature.data.length - 1
+                    ].y /
+                      80) *
+                    100
+                  }
+                  primaryMetricPrintout={`${
+                    data?.response.temperature.data[
+                      data?.response.temperature.data.length - 1
+                    ].y
+                  } C`}
+                  data={[data?.response.temperature]}
+                  colorScheme={['#54278F']}
+                />
+              </motion.div>
 
               {!!lastReportTime && parseISO(lastReportTime) && (
                 <motion.div

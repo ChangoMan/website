@@ -2,8 +2,7 @@ import { linearGradientDef } from '@nivo/core';
 import { ResponsiveLine } from '@nivo/line';
 import { ResponsivePie } from '@nivo/pie';
 import { motion } from 'framer-motion';
-import React, { useState } from 'react';
-import { FaExpandAlt } from 'react-icons/fa';
+import React from 'react';
 
 export interface Props {
   crumbs?: { to?: string; title: string }[];
@@ -17,9 +16,6 @@ const ChartCard = ({
   colorScheme,
   onClick,
 }: Props) => {
-  const crumbList = false;
-  const [modalOpen, setModalOpen] = useState(false);
-
   return (
     <motion.div
       // layout
@@ -36,10 +32,10 @@ const ChartCard = ({
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 10 }}
-        transition={{ delay: 0.4 }}
+        transition={{ delay: 0.3 }}
       >
         <div
-          className="absolute bottom-0 opacity-50 z-0"
+          className="absolute bottom-0 opacity-50 z-10"
           style={{ width: '100%', height: '75px' }}
         >
           <ResponsiveLine
@@ -69,9 +65,12 @@ const ChartCard = ({
             enablePoints={false}
             isInteractive={false}
             enableCrosshair={false}
+            crosshairType="bottom"
+            useMesh
+            enableSlices="x"
           />
         </div>
-        <div className="relative z-10">
+        <div className="relative z-0">
           <div className="relative" style={{ width: '100%', height: '300px' }}>
             <ResponsivePie
               data={[
@@ -103,13 +102,6 @@ const ChartCard = ({
               </div>
               <div>{primaryMetricPrintout}</div>
             </div>
-
-            <button
-              className="absolute top-0 right-0 mt-1 mr-1 p-2 text-1xl text-gray-500 rounded hover:bg-gray-500 hover:text-white"
-              onClick={() => setModalOpen(true)}
-            >
-              <FaExpandAlt />
-            </button>
           </div>
         </div>
       </motion.div>
