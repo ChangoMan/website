@@ -1,20 +1,32 @@
+import { OrdinalColorsInstruction } from '@nivo/colors';
 import { linearGradientDef } from '@nivo/core';
-import { ResponsiveLine } from '@nivo/line';
+import { ResponsiveLine, Serie } from '@nivo/line';
 import { ResponsivePie } from '@nivo/pie';
 import { motion } from 'framer-motion';
 import React from 'react';
 
+/**
+ * Types
+ */
 export interface Props {
-  crumbs?: { to?: string; title: string }[];
+  title: string;
+  data: Serie[];
+  primaryMetric: number;
+  primaryMetricPrintout: string;
+  colorScheme?: OrdinalColorsInstruction;
 }
 
+/**
+ *
+ * Component
+ *
+ */
 const ChartCard = ({
   title,
   primaryMetric,
   primaryMetricPrintout,
   data,
   colorScheme,
-  onClick,
 }: Props) => {
   return (
     <motion.div
@@ -25,7 +37,6 @@ const ChartCard = ({
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
-      onClick={() => onClick(title)}
     >
       <motion.div
         key="unselected-content"
