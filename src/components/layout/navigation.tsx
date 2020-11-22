@@ -1,4 +1,5 @@
 import { Link } from 'gatsby';
+import { styled } from 'linaria/react';
 import React from 'react';
 
 const ROOT_ROUTE = '/';
@@ -18,12 +19,25 @@ const navLinks = [
   },
 ];
 
+const NavLink = styled((props) => <Link {...props} />)`
+  border-bottom: 2px solid white;
+  transition: border 0.2s ease;
+
+  &.active,
+  &.active:hover {
+    border-bottom: 2px solid black;
+  }
+  &:hover {
+    border-bottom: 2px solid grey;
+  }
+`;
+
 const Navigation = () => {
   return (
     <nav className="nav-container">
       <div className="nav-links flex items-end">
         {navLinks.map((link) => (
-          <Link
+          <NavLink
             key={link.path}
             to={link.path}
             className="link leading-tight text-black text-xl font-display no-underline ml-6"
@@ -31,25 +45,9 @@ const Navigation = () => {
             partiallyActive={link.path !== ROOT_ROUTE}
           >
             {link.title}
-          </Link>
+          </NavLink>
         ))}
       </div>
-
-      <style jsx>
-        {`
-          .nav-container :global(.nav-links .link) {
-            border-bottom: 2px solid white;
-            transition: border 0.2s ease;
-          }
-          .nav-container :global(.nav-links .link.active),
-          .nav-container :global(.nav-links .link.active:hover) {
-            border-bottom: 2px solid black;
-          }
-          .nav-container :global(.nav-links .link:hover) {
-            border-bottom: 2px solid grey;
-          }
-        `}
-      </style>
     </nav>
   );
 };
