@@ -65,7 +65,7 @@ const SimpleMetricsIndex = () => {
         <div className="max-w-2xl my-0 mx-auto">
           <SimpleMetricsHeading
             mightBeDown={mightBeDown}
-            isLoading={!data}
+            isLoading={!data && !error}
             hasError={!!error}
           />
 
@@ -78,7 +78,13 @@ const SimpleMetricsIndex = () => {
             </div>
           )}
 
-          {error && <div>Unable to load data.</div>}
+          {error && (
+            <div className="mb-4 flex justify-center">
+              <div className="inline-block bg-gray-200 rounded py-2 px-4">
+                Unable to load data.
+              </div>
+            </div>
+          )}
 
           {!error && data && (
             <>
