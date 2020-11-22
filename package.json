@@ -8,6 +8,7 @@
     "url": "https://github.com/ansonlichtfuss/website/issues"
   },
   "dependencies": {
+    "@icons-pack/react-simple-icons": "^3.13.0",
     "@nivo/core": "^0.62.0",
     "@nivo/line": "^0.62.0",
     "@nivo/pie": "^0.62.0",
@@ -39,8 +40,8 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-feather": "^2.0.9",
     "react-helmet": "^6.1.0",
-    "react-icons": "^3.11.0",
     "swr": "^0.3.1",
     "typeface-work-sans": "0.0.72"
   },

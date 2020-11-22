@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import React from 'react';
-import { FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
+import AlertCircle from 'react-feather/dist/icons/alert-circle';
+import CheckCircle from 'react-feather/dist/icons/check';
 
 /**
  * Types
@@ -33,11 +34,11 @@ const SimpleMetricsHeading = ({ mightBeDown, isLoading, hasError }: Props) => (
       <div className="text-5xl">
         {mightBeDown ? (
           <div className="bg-red-200 rounded-full p-1">
-            <FaExclamationCircle className="text-red-700" />
+            <AlertCircle className="text-red-700" size={48} />
           </div>
         ) : (
           <div className="bg-green-200 rounded-full p-1 flex items-center">
-            <FaCheckCircle className="text-green-600" />
+            <CheckCircle className="text-green-600" size={48} />
           </div>
         )}
       </div>
