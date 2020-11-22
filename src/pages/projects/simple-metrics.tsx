@@ -82,7 +82,7 @@ const SimpleMetricsIndex = () => {
 
           {!error && data && (
             <>
-              <motion.div className={'grid grid-cols-2 gap-8'}>
+              <motion.div className={'grid md:grid-cols-2 gap-8'}>
                 <ChartCard
                   title="CPU"
                   primaryMetric={latestCpuTotal}
