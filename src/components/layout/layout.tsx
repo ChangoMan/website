@@ -44,6 +44,7 @@ const Layout = ({ children, fullscreenWidth, crumbs }: Props) => {
               className="ml-6 transition-text duration-200 hover:text-black text-gray-500"
               href="https://www.linkedin.com/in/anson-lichtfuss-3401b6128"
               target="_blank"
+              rel="noreferrer"
             >
               <LinkedinIcon size={18} />
             </a>
@@ -51,6 +52,7 @@ const Layout = ({ children, fullscreenWidth, crumbs }: Props) => {
               className="ml-3 transition-text duration-200 hover:text-black text-gray-500"
               href="https://twitter.com/ansonlichtfuss"
               target="_blank"
+              rel="noreferrer"
             >
               <TwitterIcon size={18} />
             </a>
@@ -58,6 +60,7 @@ const Layout = ({ children, fullscreenWidth, crumbs }: Props) => {
               className="ml-3 transition-text duration-200 hover:text-black text-gray-500"
               href="https://www.instagram.com/ansonlichtfuss/"
               target="_blank"
+              rel="noreferrer"
             >
               <InstagramIcon size={18} />
             </a>

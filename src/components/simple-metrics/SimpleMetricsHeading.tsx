@@ -30,9 +30,9 @@ const SimpleMetricsHeading = ({ mightBeDown, isLoading, hasError }: Props) => (
         for Raspberry Pi
       </div>
     </div>
-    {!hasError && !isLoading && (
+    {!isLoading && (
       <div className="text-5xl">
-        {mightBeDown ? (
+        {mightBeDown || hasError ? (
           <div className="bg-red-200 rounded-full p-1">
             <AlertCircle className="text-red-700" size={48} />
           </div>
