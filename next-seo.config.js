@@ -5,7 +5,7 @@ export default {
     locale: 'en_US',
     images: [
       {
-        url: 'https://www.ansonlichtfuss.com/assets/banner.jpg',
+        url: 'https://www.ansonlichtfuss.com/assets/banner.png',
         alt: 'Anson Lichtfuss',
         width: 1280,
         height: 720,
