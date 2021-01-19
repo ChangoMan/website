@@ -4,7 +4,7 @@ import Logo from '../assets/logo';
 import Navigation from './navigation';
 
 const Header = (): JSX.Element => (
-  <div className="flex items-center justify-between relative z-50 px-5">
+  <div className="flex items-center justify-between relative z-50 px-5 pb-6">
     <span className="m-0 pb-0 font-display flex items-center justify-between text-lg">
       <NextLink href="/">
         <a className="no-underline">

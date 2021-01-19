@@ -55,7 +55,7 @@ const PostPage = ({ source, frontMatter }: Props): JSX.Element => {
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
-          <article className="px-5 sm:px-8 md:px-16 pb-8 pt-8 mt-8 shadow-none md:shadow-lg">
+          <article className="px-5 sm:px-8 md:px-16 pb-8 md:pt-8 shadow-none md:shadow-lg">
             <PostHeader
               title={frontMatter.title}
               date={frontMatter.date}

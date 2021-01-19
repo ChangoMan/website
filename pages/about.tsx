@@ -45,7 +45,7 @@ const AboutIndex = (): JSX.Element => (
         I make beautiful, enjoyable online experiences. Previous back-end
         experience informs design and architectural decisions I make every day,
         helping drive reusable, fast user interfaces. I currently specialize in
-        front-end engineering, using technologies like React.js, Next.js, and
+        frontend engineering, using technologies like React.js, Next.js, and
         Gatsby.js to build powerful applications used by thousands.
       </p>
       <p>
