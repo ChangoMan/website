@@ -77,7 +77,7 @@ module.exports = {
         '5xl': '3rem',
         '6xl': '4rem',
         '7xl': '6rem',
-        'display-title': '9rem',
+        'display-title': '7.5rem',
       },
       boxShadow: {
         small: '0 5px 10px rgba(0, 0, 0, 0.12)',

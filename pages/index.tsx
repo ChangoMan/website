@@ -15,7 +15,7 @@ type Props = {
 const Index = ({ allPosts }: Props): JSX.Element => {
   return (
     <Layout>
-      <div className="relative mb-24 pb-6 z-0" style={{ minHeight: '60vh' }}>
+      <div className="relative mb-24 pb-6 z-0" style={{ minHeight: '65vh' }}>
         <div
           className="absolute opacity-50 h-full left-0 w-full text-left"
           style={{ zIndex: -1 }}
@@ -29,7 +29,7 @@ const Index = ({ allPosts }: Props): JSX.Element => {
         </div>
         <div
           className={`mx-auto max-w-5xl relative flex flex-col justify-center `}
-          style={{ minHeight: '60vh' }}
+          style={{ minHeight: '65vh' }}
         >
           <div className="relative">
             <div
@@ -38,29 +38,44 @@ const Index = ({ allPosts }: Props): JSX.Element => {
             >
               <div
                 className="opacity-75 mx-auto lg:ml-60 mt-12 lg:mt-0"
-                style={{ width: '14rem' }}
+                style={{ width: '17rem' }}
               >
                 <Plus />
               </div>
             </div>
-            <div className="front-layer top-0 right-0 flex flex-col justify-center items-center  w-full h-full">
-              <div className="text-center hidden lg:block w-full">
-                <div className="font-black font-display text-7xl uppercase leading-none">
-                  Designer
+            <div className="front-layer top-0 right-0 flex flex-col justify-center items-center w-full h-full">
+              {/* Desktop horizontal view */}
+              <div className="text-right hidden lg:flex w-full items-center justify-center">
+                <div className="pr-3 border-r border-gray-200">
+                  <div className="font-black font-display text-display-title uppercase leading-none">
+                    Designer
+                  </div>
+                  <div className="font-black font-display text-display-title uppercase leading-none">
+                    Developer
+                  </div>
                 </div>
-                <div className="font-black font-display text-7xl uppercase leading-none">
-                  Developer
+                <div
+                  className="font-semibold font-display text-lg uppercase leading-none text-center pl-2"
+                  style={{ writingMode: 'vertical-lr' }}
+                >
+                  Frontend Engineer
                 </div>
               </div>
-              <div
-                className="text-right lg:hidden"
-                style={{ writingMode: 'vertical-lr' }}
-              >
-                <div className="font-black font-display text-display-title uppercase leading-none">
-                  Designer
+              {/* Mobile vertical view */}
+              <div className="lg:hidden flex flex-col items-center">
+                <div
+                  className="text-right"
+                  style={{ writingMode: 'vertical-lr' }}
+                >
+                  <div className="font-black font-display text-display-title uppercase leading-none">
+                    Designer
+                  </div>
+                  <div className="font-black font-display text-display-title uppercase leading-none">
+                    Developer
+                  </div>
                 </div>
-                <div className="font-black font-display text-display-title uppercase leading-none">
-                  Developer
+                <div className="font-semibold font-display text-lg uppercase leading-none text-center pt-6">
+                  Frontend Engineer
                 </div>
               </div>
               <Ticker
@@ -81,13 +96,13 @@ const Index = ({ allPosts }: Props): JSX.Element => {
         </div>
       </div>
 
-      <div className="px-5 md:px-0 md:grid gap-8 grid-cols-2">
+      <div className="px-5 md:px-0 lg:grid gap-8 grid-cols-2">
         <div className="mb-12 md:mb-0">
           <div className="tracking-widest text-black font-display uppercase mb-3 opacity-75 text-center">
             Projects
           </div>
 
-          <div className="mb-4 mx-auto relative max-w-2xl shadow-md hover:shadow-xl transition-shadow duration-200 bg-white rounded overflow-hidden border border-gray-100">
+          <div className="mb-4 mx-auto relative max-w-2xl shadow-none hover:shadow-xl transition-shadow duration-200 bg-white rounded overflow-hidden border border-gray-200">
             <NextLink href={`/projects/simple-metrics`}>
               <a className="flex items-center justify-center flex-col md:flex-row p-3 md:pr-0 text-black no-underline">
                 <div className="m-2 mr-4">
