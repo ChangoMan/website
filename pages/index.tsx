@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next';
+import { NextSeo } from 'next-seo';
 import Image from 'next/image';
 import NextLink from 'next/link';
 import Plus from '../components/assets/plus';
@@ -8,6 +9,10 @@ import PostPreview from '../components/post/post-preview';
 import { getAllPosts } from '../lib/api';
 import Post from '../types/post';
 
+const url = 'https://www.ansonlichtfuss.com';
+const title = 'Home';
+const description = `Frontend engineer building useful, beautiful interfaces in Colorado.`;
+
 type Props = {
   allPosts: Post[];
 };
@@ -15,6 +20,16 @@ type Props = {
 const Index = ({ allPosts }: Props): JSX.Element => {
   return (
     <Layout>
+      <NextSeo
+        title={title}
+        description={description}
+        canonical={url}
+        openGraph={{
+          url,
+          title,
+          description,
+        }}
+      />
       <div className="relative mb-24 pb-6 z-0" style={{ minHeight: '65vh' }}>
         <div
           className="absolute opacity-50 h-full left-0 w-full text-left"
