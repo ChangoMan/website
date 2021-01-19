@@ -44,11 +44,20 @@ class MyDocument extends Document {
             content="/favicons/browserconfig.xml"
             name="msapplication-config"
           />
+          <meta
+            name="google-site-verification"
+            content="qAujpHdVsxK9WMN7nz0PF58uVJSnIL3PnlhZBSpxgM4"
+          />
         </Head>
         <Meta />
         <body>
           <Main />
           <NextScript />
+          <script
+            data-goatcounter="https://5ms89eqxkk7k.goatcounter.com/count"
+            async
+            src="//gc.zgo.at/count.js"
+          ></script>
         </body>
       </Html>
     );
