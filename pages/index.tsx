@@ -43,10 +43,10 @@ const Index = ({ allPosts }: Props): JSX.Element => {
           />
         </div>
         <div
-          className={`mx-auto max-w-5xl relative flex flex-col justify-center `}
+          className={`mx-auto max-w-5xl relative flex flex-col justify-center`}
           style={{ minHeight: '65vh' }}
         >
-          <div className="relative">
+          <div className="relative pb-4">
             <div
               className="back-layer absolute top-0 w-full h-full"
               style={{ zIndex: -1 }}
