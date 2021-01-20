@@ -35,12 +35,14 @@ const Index = ({ allPosts }: Props): JSX.Element => {
           className="absolute opacity-50 h-full left-0 w-full text-left"
           style={{ zIndex: -1 }}
         >
-          <Image
-            alt="Self portrait"
-            layout="fill"
-            className="object-cover lg:object-contain"
-            src="/assets/homepageprofile.jpg"
-          />
+          <div className="relative max-w-xl h-full mx-auto">
+            <Image
+              alt="Self portrait"
+              layout="fill"
+              className="object-cover lg:object-contain"
+              src="/assets/homepageprofile.jpg"
+            />
+          </div>
         </div>
         <div
           className={`mx-auto max-w-5xl relative flex flex-col justify-center`}
